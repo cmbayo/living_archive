@@ -26,8 +26,8 @@ Guardian article [https://www.theguardian.com/cities/2016/mar/18/story-of-cities
 
 ## Decision: Materials Used
 
-**Date:** 
-**Status:** 
+**Date:** Jan 2025
+**Status:** Active
 
 **Decision:** Use simple, easy-to-find materials for hands-on exploration of Benin City’s fractal layout.
 
@@ -43,8 +43,8 @@ Guardian article [https://www.theguardian.com/cities/2016/mar/18/story-of-cities
 
 ## Decision: Binding Agent
 
-**Date:** 
-**Status:** 
+**Date:** Jun 2025
+**Status:** Active
 
 **Decision:** Use hot glue as the primary binding agent for materials.
 
@@ -64,8 +64,8 @@ Guardian article [https://www.theguardian.com/cities/2016/mar/18/story-of-cities
 
 ## Decision: Squishy Circuits
 
-**Date:** 
-**Status:** 
+**Date:** Jan 2025
+**Status:** Active
 
 **Decision:** Module uses Play-Doh circuits to teach basic electrical principles.
 
@@ -82,8 +82,8 @@ Guardian article [https://www.theguardian.com/cities/2016/mar/18/story-of-cities
 
 ## Decision: Sounds Sculpture
 
-**Date:** 
-**Status:** 
+**Date:** Apr 2025
+**Status:** Active
 
 **Decision:** Module uses body, materials, and circuits to create sound sculptures; drum circle is central to neighborhood layout.
 
