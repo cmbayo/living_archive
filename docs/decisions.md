@@ -99,17 +99,24 @@ Inspired by Cal Fisher from More Art Cohort
 
 ---
 
-## Decision: [Title]
+## Decision: Use AI
 
-**Date:** 
+**Date:** 03/11/26
 **Status:** 
 
-**Decision:** 
+**Decision:** To use AI
 
-**Context:**
+**Context:** We are so behind and want something that works well fast. Claude said I could do this in a month
 
 **Alternatives Considered:**
 
 **Outcome:**
 
 **Implementation Notes:**
+MVP
+3D gallery with 2-3 sample structures (React Three Fiber)
+Audio player linked to structures
+Basic branching storytelling (add/read contributions)
+Beautiful Afrofuturist UI (fractals, color palette, typography)
+Firestore real-time updates (see new stories appear live)
+Deployed on Vercel with a real URL to show NYSCA
