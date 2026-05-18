@@ -5,15 +5,24 @@ export async function uploadFile(file: File): Promise<string> {
   const fileExt = file.name.split(".").pop();
   const fileName = `${crypto.randomUUID()}.${fileExt}`;
 
-  console.log("Attempting upload to bucket: archive-media");
-  console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
-  console.log("Service key exists:", !!process.env.NEXT_PUBLIC_SUPABASE_SERVICE_KEY);
- 
+  const contentTypeMap: Record<string, string> = {
+    mp3: "audio/mpeg",
+    wav: "audio/wav",
+    ogg: "audio/ogg",
+    glb: "model/gltf-binary",
+    bvh: "application/octet-stream",
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+  };
+
+  const contentType = contentTypeMap[fileExt ?? ""] ?? file.type ?? "application/octet-stream";
+  
   const { data, error } = await supabaseAdmin.storage
     .from("archive-media")
-    .upload(fileName, file);
-
-  console.log("Uploaded result:", {data, error});
+    .upload(fileName, file, {
+        contentType,
+    });
 
   if (error) throw new Error(error.message);
 
