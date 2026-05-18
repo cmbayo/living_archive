@@ -1,6 +1,5 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { Lot } from "@/app/generated/prisma/browser";
 
 export async function GET() {
   const neighborhoods = await prisma.neighborhood.findMany({

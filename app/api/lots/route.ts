@@ -14,6 +14,7 @@ export async function GET() {
   return Response.json({ data: lots });
 }
 
+// we didn't take care of events in this one
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
