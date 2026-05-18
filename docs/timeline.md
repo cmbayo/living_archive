@@ -11,7 +11,7 @@
 [X] Set up Next.js project, Supabase, Prisma
 [X] Write the database schema (Character, Relationship, Event, Location, AgeStage)
 [X] Connect Prisma to Supabase PostgreSQL
-[ ] Basic file upload working (test with one audio file and one .glb)
+[X] Basic file upload working (test with one audio file)
 
 ## Week 2 — API
 
