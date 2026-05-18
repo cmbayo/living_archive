@@ -1,8 +1,8 @@
 # Project Timeline
 (/docs/timeline.md)
 **Project:** Crafting Our Legacy: Living Archive
-**Team:** Solo development (first 4 months), community engagement (months 5-10)
-**Launch Target:** Beginning of Month 5
+**Team:** Solo development (May-June), community engagement (June-onwards)
+**Launch Target:** June 16th
 **Community Size:** 5-20 participants initially
 
 
