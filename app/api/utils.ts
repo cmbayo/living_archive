@@ -2,8 +2,10 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 // Utility function to upload a file to Supabase Storage and return its public URL
 export async function uploadFile(file: File): Promise<string> {
-  const fileExt = file.name.split(".").pop();
+  const fileExt = file.name.split(".").pop()?.toLowerCase();
   const fileName = `${crypto.randomUUID()}.${fileExt}`;
+  const arrayBuffer = await file.arrayBuffer(); // using arrayBuffer so we can set content type explicitly
+  const buffer = Buffer.from(arrayBuffer);
 
   const contentTypeMap: Record<string, string> = {
     mp3: "audio/mpeg",
@@ -17,10 +19,12 @@ export async function uploadFile(file: File): Promise<string> {
   };
 
   const contentType = contentTypeMap[fileExt ?? ""] ?? file.type ?? "application/octet-stream";
-  
+
+  console.log("contentType:", contentType);
+
   const { data, error } = await supabaseAdmin.storage
     .from("archive-media")
-    .upload(fileName, file, {
+    .upload(fileName, buffer, {
         contentType,
     });
 
