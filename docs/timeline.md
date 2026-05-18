@@ -8,9 +8,9 @@
 
 ## Week 1 — Foundation
 
-[ ] Set up Next.js project, Supabase, Prisma
-[ ] Write the database schema (Character, Relationship, Event, Location, AgeStage)
-[ ] Connect Prisma to Supabase PostgreSQL
+[X] Set up Next.js project, Supabase, Prisma
+[X] Write the database schema (Character, Relationship, Event, Location, AgeStage)
+[X] Connect Prisma to Supabase PostgreSQL
 [ ] Basic file upload working (test with one audio file and one .glb)
 
 ## Week 2 — API
