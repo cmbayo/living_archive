@@ -16,8 +16,9 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     const file = formData.get("file") as File;
     const type = formData.get("type") as MediaType;
-    const mediaOwner = formData.get("mediaOwner") as MediaOwner;
-    const ownerId = parseInt(formData.get("ownerId") as string);
+    const mediaOwner = formData.get("mediaOwner") as MediaOwner | null;
+    const ownerIdRaw = formData.get("ownerId");
+    const ownerId = ownerIdRaw ? parseInt(ownerIdRaw as string) : null;
 
     if (!file || !type ) { // mediaOwner and ownerId are optional for testing purposes
       return Response.json({ error: "Missing required fields" }, { status: 400 });
