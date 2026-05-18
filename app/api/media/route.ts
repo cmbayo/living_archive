@@ -3,6 +3,14 @@ import { prisma } from "@/lib/prisma";
 import { uploadFile } from "@/app/api/utils";
 import { MediaType, MediaOwner } from "@/app/generated/prisma/client";
 
+// export const config = {
+//   api: {
+//     bodyParser: {
+//       sizeLimit: '10mb',
+//     },
+//   },
+// };
+
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const file = formData.get("file") as File;
