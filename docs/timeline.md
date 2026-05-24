@@ -15,9 +15,9 @@
 
 ## Week 2 — API
 
-[ ] Write all API routes (locations, characters, events, stories, relationships)
-[ ] Custom logic (location requires physical structure, story layering not overwriting)
+[/] Write all API routes (locations, characters, events, stories, relationships)
 [ ] Test every endpoint
+[ ] Custom logic (location requires physical structure, story layering not overwriting)
 [ ] File upload endpoints for audio, .glb, .bvh mocap files
 
 ## Week 3 — Frontend core
@@ -32,4 +32,4 @@
 [ ] Form for users to submit structures (photo/.glb + story + audio)
 [ ] AgeStage and relationship display
 [ ] Atmospheric styling (your aesthetic from Tenderness in the Chaos)
-[ ] Deploy to Vercel, share link at Brooklyn event
+[X] Deploy to Vercel, share link at Brooklyn event
