@@ -15,10 +15,10 @@
 
 ## Week 2 — API
 
-[/] Write all API routes (locations, characters, events, stories, relationships)
-[ ] Test every endpoint
-[ ] Custom logic (location requires physical structure, story layering not overwriting)
-[ ] File upload endpoints for audio, .glb, .bvh mocap files
+[X] Write all API routes (locations, characters, events, stories, relationships)
+[X] Test every endpoint
+[/] Custom logic (location requires physical structure, story layering not overwriting)
+[X] File upload endpoints for audio, .glb, .bvh mocap files
 
 ## Week 3 — Frontend core
 

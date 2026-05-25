@@ -20,6 +20,9 @@ export async function POST(request: NextRequest) {
         const eventIdsRaw = body.eventIds;
         const eventIds: number[] = eventIdsRaw ? JSON.parse(eventIdsRaw as string) : [];
 
+        // if the layer isn't given. 
+        // find the highest layer number for stories linked to these events
+
         if (!content) {
             return Response.json({ error: "Content is required" }, { status: 400 });
         }
