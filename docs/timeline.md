@@ -1,8 +1,8 @@
 # Project Timeline
 (/docs/timeline.md)
 **Project:** Crafting Our Legacy: Living Archive
-**Team:** Solo development (first 4 months), community engagement (months 5-10)
-**Launch Target:** Beginning of Month 5
+**Team:** Solo development (May-June), community engagement (June-onwards)
+**Launch Target:** June 16th
 **Community Size:** 5-20 participants initially
 
 
@@ -11,14 +11,14 @@
 [X] Set up Next.js project, Supabase, Prisma
 [X] Write the database schema (Character, Relationship, Event, Location, AgeStage)
 [X] Connect Prisma to Supabase PostgreSQL
-[ ] Basic file upload working (test with one audio file and one .glb)
+[X] Basic file upload working (test with one audio file)
 
 ## Week 2 — API
 
-[ ] Write all API routes (locations, characters, events, stories, relationships)
-[ ] Custom logic (location requires physical structure, story layering not overwriting)
-[ ] Test every endpoint
-[ ] File upload endpoints for audio, .glb, .bvh mocap files
+[X] Write all API routes (locations, characters, events, stories, relationships)
+[X] Test every endpoint
+[/] Custom logic (location requires physical structure, story layering not overwriting)
+[X] File upload endpoints for audio, .glb, .bvh mocap files
 
 ## Week 3 — Frontend core
 
@@ -32,4 +32,4 @@
 [ ] Form for users to submit structures (photo/.glb + story + audio)
 [ ] AgeStage and relationship display
 [ ] Atmospheric styling (your aesthetic from Tenderness in the Chaos)
-[ ] Deploy to Vercel, share link at Brooklyn event
+[X] Deploy to Vercel, share link at Brooklyn event

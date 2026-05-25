@@ -3,6 +3,15 @@ import { prisma } from "@/lib/prisma";
 import { uploadFile } from "@/app/api/utils";
 import { MediaType, MediaOwner } from "@/app/generated/prisma/client";
 
+export async function GET() {
+  const media = await prisma.media.findMany({
+    include: {
+      attachments: true,
+    },
+  });
+
+  return Response.json({ data: media });
+}
 // export const config = {
 //   api: {
 //     bodyParser: {

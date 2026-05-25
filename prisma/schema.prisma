@@ -87,6 +87,7 @@ model Neighborhood {
 
 model Event {
   id          Int       @id @default(autoincrement())
+  name        String
   datetime    DateTime
   description String
   major       Boolean   @default(false)
