@@ -28,7 +28,7 @@ LOT_ID=$(echo $LOT | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
 echo "Lot ID: $LOT_ID"
 
 echo ""
-echo "👤 Creating character..."
+echo "👤 Creating characters..."
 CHARACTER=$(curl -s -X POST $BASE_URL/api/characters \
   -F "name=Amara" \
   -F "backstory=Elder of the village" \
@@ -71,4 +71,29 @@ RELATIONSHIP=$(curl -s -X POST $BASE_URL/api/relationships \
 echo $RELATIONSHIP
 
 echo ""
-echo "✅ Done"
+echo "✅ Done Testing POST"
+
+echo ""
+echo "🌍 Testing GET neighborhoods..."
+curl -s -X GET $BASE_URL/api/neighborhoods | python3 -m json.tool
+
+echo ""
+echo "🏗️ Testing GET lots..."
+curl -s -X GET $BASE_URL/api/lots | python3 -m json.tool
+
+echo ""
+echo "👤 Testing GET characters..."
+curl -s -X GET $BASE_URL/api/characters | python3 -m json.tool
+
+echo ""
+echo "📅 Testing GET events..."
+curl -s -X GET $BASE_URL/api/events | python3 -m json.tool
+
+echo ""
+echo "📖 Testing GET stories..."
+curl -s -X GET $BASE_URL/api/stories | python3 -m json.tool
+
+echo ""
+echo "🤝 Testing GET relationships..."
+curl -s -X GET $BASE_URL/api/relationships | python3 -m json.tool
+echo "✅ Done Testing GET"
