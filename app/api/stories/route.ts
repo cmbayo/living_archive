@@ -13,11 +13,11 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
     try {
-        const formData = await request.formData();
-        const content = formData.get("content") as string;
-        const layer = parseInt(formData.get("layer") as string);
+        const body = await request.json();
+        const content = body.content as string;
+        const layer = body.layer;
         
-        const eventIdsRaw = formData.get("eventIds");
+        const eventIdsRaw = body.eventIds;
         const eventIds: number[] = eventIdsRaw ? JSON.parse(eventIdsRaw as string) : [];
 
         if (!content) {

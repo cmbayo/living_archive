@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { uploadFile, getMediaType } from "@/app/api/utils";
+// import { uploadFile, getMediaType } from "@/app/api/utils";
 
 export async function GET() {
   const relationships = await prisma.relationship.findMany({
@@ -15,13 +15,13 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const formData = await request.formData();
-    const type = formData.get("type") as string;
-    const strengthRaw = formData.get("strength") as string;
+    const body = await request.json();
+    const type = body.type as string;
+    const strengthRaw = body.strength as string;
     const strength = strengthRaw ? parseInt(strengthRaw) : 0;
-    const characterIdRaw = formData.get("characterId");
+    const characterIdRaw = body.characterId;
     const characterId = characterIdRaw ? parseInt(characterIdRaw as string) : null;
-    const relatedToIdRaw = formData.get("relatedToId");
+    const relatedToIdRaw = body.relatedToId;
     const relatedToId = relatedToIdRaw ? parseInt(relatedToIdRaw as string) : null;
 
     if (!type || !characterId || !relatedToId) {

@@ -30,36 +30,45 @@ echo "Lot ID: $LOT_ID"
 echo ""
 echo "👤 Creating character..."
 CHARACTER=$(curl -s -X POST $BASE_URL/api/characters \
-  -H "Content-Type: application/json" \
-  -d "{\"name\": \"Amara\", \"backstory\": \"Elder of the village\", \"timeTraveler\": false}")
+  -F "name=Amara" \
+  -F "backstory=Elder of the village" \
+  -F "timeTraveler=false")
 echo $CHARACTER
 CHARACTER_ID=$(echo $CHARACTER | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
 echo "Character ID: $CHARACTER_ID"
 
-# echo ""
-# echo "📅 Creating event..."
-# EVENT=$(curl -s -X POST $BASE_URL/api/events \
-#   -H "Content-Type: application/json" \
-#   -d "{\"datetime\": \"2026-05-18T00:00:00Z\", \"description\": \"The day the structure was named\", \"major\": true, \"lotId\": $LOT_ID, \"characterId\": $CHARACTER_ID}")
-# echo $EVENT
-# EVENT_ID=$(echo $EVENT | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-# echo "Event ID: $EVENT_ID"
+# create a second character for the relationship test
+CHARACTER2=$(curl -s -X POST $BASE_URL/api/characters \
+  -F "name=Kofi" \
+  -F "backstory=Young builder" \
+  -F "timeTraveler=true")
+CHARACTER2_ID=$(echo $CHARACTER2 | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
+echo "Character 2 ID: $CHARACTER2_ID"
 
-# echo ""
-# echo "📖 Creating story..."
-# STORY=$(curl -s -X POST $BASE_URL/api/stories \
-#   -H "Content-Type: application/json" \
-#   -d "{\"content\": \"This is the story of how the structure came to be\", \"eventIds\": [$EVENT_ID]}")
-# echo $STORY
-# STORY_ID=$(echo $STORY | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-# echo "Story ID: $STORY_ID"
+echo ""
+echo "📅 Creating event..."
+EVENT=$(curl -s -X POST $BASE_URL/api/events \
+  -H "Content-Type: application/json" \
+  -d "{\"name\": \"Gaia speaks\", \"datetime\": \"2026-05-18T00:00:00Z\", \"description\": \"The day the structure was named\", \"major\": true, \"lotId\": $LOT_ID, \"characterId\": $CHARACTER_ID}")
+echo $EVENT
+EVENT_ID=$(echo $EVENT | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
+echo "Event ID: $EVENT_ID"
 
-# echo ""
-# echo "🤝 Creating relationship..."
-# RELATIONSHIP=$(curl -s -X POST $BASE_URL/api/relationships \
-#   -H "Content-Type: application/json" \
-#   -d "{\"characterId\": $CHARACTER_ID, \"relatedToId\": $CHARACTER_ID, \"type\": \"friend\", \"strength\": 80}")
-# echo $RELATIONSHIP
+echo ""
+echo "📖 Creating story..."
+STORY=$(curl -s -X POST $BASE_URL/api/stories \
+  -H "Content-Type: application/json" \
+  -d "{\"content\": \"This is the story of how the structure came to be\", \"eventIds\": [$EVENT_ID]}")
+echo $STORY
+STORY_ID=$(echo $STORY | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
+echo "Story ID: $STORY_ID"
+
+echo ""
+echo "🤝 Creating relationship..."
+RELATIONSHIP=$(curl -s -X POST $BASE_URL/api/relationships \
+  -H "Content-Type: application/json" \
+  -d "{\"characterId\": $CHARACTER_ID, \"relatedToId\": $CHARACTER2_ID, \"type\": \"friend\", \"strength\": 80}")
+echo $RELATIONSHIP
 
 echo ""
 echo "✅ Done"

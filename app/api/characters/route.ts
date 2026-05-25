@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { uploadFile, getMediaType } from "@/app/api/utils";
-import { MediaType, MediaOwner, AgeStage } from "@/app/generated/prisma/client";
+// import { getMediaType, uploadFile } from "@/app/api/utils";
+import { AgeStage } from "@/app/generated/prisma/client"; // eventually MediaType, MediaOwner,
 
 export async function GET() {
   const stories = await prisma.character.findMany({
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
         const name = formData.get("name") as string;
         const backstory = formData.get("backstory") as string || null;
         const currentAge = formData.get("currentAge") as AgeStage || AgeStage.Adult;
-        const timeTraveler = formData.get("timeTraveler") === "false";
+        const timeTraveler = formData.get("timeTraveler") === "true";
 
         const storyIdsRaw = formData.get("storyIds");
         const storyIds: number[] = storyIdsRaw ? JSON.parse(storyIdsRaw as string) : [];
