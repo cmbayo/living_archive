@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0d0d20;
+  --gold: #c4922a;
+  --gold-muted: rgba(196, 146, 42, 0.2);
+  --cream: #e8d5b0;
+  --cream-muted: rgba(232, 213, 176, 0.7);
+  --coral: #c4614a;
+  --indigo: #2a3a7a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--cream);
+  font-family: var(--font-display);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.model-viewer {
+  width: 100%;
+  height: 70vh;
+}
+
+.audio-player {
+  margin-bottom: 1rem;
+}
+
+.audio-btn {
+  background: none;
+  border: 1px solid var(--cream);
+  color: var(--cream);
+  padding: 0.75rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+  background: var(--cream);
+  color: var(--bg-primary);
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.event {
+  padding-left: 2rem;
+  border-left: 1px solid var(--gold-muted);
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-name {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.event-major {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.event-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.event-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--cream-muted);
+  margin-bottom: 1.5rem;
+}
+
+.stories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-left: 1rem;
+}
+
+.story {
+  padding: 1.5rem;
+  background: rgba(196, 146, 42, 0.05);
+  border: 1px solid var(--gold-muted);
+}
+
+.story-layer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.story-content {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  font-style: italic;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.photo {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: sepia(0.2);
+  transition: filter 0.3s ease;
+}
+
+.photo:hover {
+  filter: sepia(0);
+}
+
+.mocap-canvas-wrapper {
+  width: 100%;
+  height: 50vh;
+  border: 1px solid var(--gold-muted);
+}
+
+.lot-page {
+  min-height: 100vh;
+}
+
+.back-btn {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 100;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+
+.lot-content {
+  padding: 0 6rem 6rem;
+}
+
+.lot-section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gold-muted);
+}
+
+.fractal-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-muted), transparent);
+  margin: 2rem 0;
+}
+
+.model-placeholder {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-muted);
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
 }

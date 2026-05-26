@@ -22,6 +22,7 @@
 
 ## Week 3 — Frontend core
 
+[ ] Lot page
 [ ] Location browser (map or grid view)
 [ ] 3D model viewer with React Three Fiber
 [ ] Audio playback attached to locations/characters
