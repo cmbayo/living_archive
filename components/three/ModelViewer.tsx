@@ -23,6 +23,9 @@ interface ModelViewerProps {
   url: string;
 }
 
+// console.log("media:", media);
+// console.log("model:", model);
+
 export default function ModelViewer({ url }: ModelViewerProps) {
   return (
     <div className="model-viewer">

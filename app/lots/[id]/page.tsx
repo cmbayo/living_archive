@@ -38,7 +38,7 @@ export default function LotPage() {
   const photos = media.filter(m => m.type === "Photo");
   const mocap = media.filter(m => m.type === "Mocap");
 
-  // @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap');
+//   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap');
 
   return (
     <main className="lot-page">
