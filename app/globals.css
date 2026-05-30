@@ -267,3 +267,84 @@
   letter-spacing: 0.2em;
   color: var(--gold);
 }
+
+.neighborhood-page {
+  min-height: 100vh;
+  padding: 6rem;
+}
+
+.neighborhood-header {
+  margin-bottom: 2rem;
+}
+
+.neighborhood-name {
+  font-size: 5rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.neighborhood-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.lots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.lot-card {
+  background: none;
+  border: 1px solid var(--gold-muted);
+  color: var(--cream);
+  padding: 2rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-family: var(--font-display);
+}
+
+.lot-card:hover {
+  border-color: var(--gold);
+  background: rgba(196, 146, 42, 0.05);
+}
+
+.lot-card-add {
+  border-style: dashed;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lot-card-name {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.lot-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.lot-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  border: 1px solid var(--gold-muted);
+  padding: 0.2rem 0.5rem;
+  display: inline-block;
+  letter-spacing: 0.1em;
+}
