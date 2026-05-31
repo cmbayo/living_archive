@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import HexGrid from "@/components/archive/HexGrid";
+
 
 interface Lot {
   id: number;
@@ -47,28 +49,39 @@ export default function NeighborhoodPage() {
       </div>
 
       <div className="fractal-divider" />
+      <HexGrid lots={neighborhood.lots} neighborhoodId={neighborhood.id} />
 
-      <div className="lots-grid">
-        {neighborhood.lots.map(lot => (
+      {/*<div className="lots-grid">
+         {neighborhood.lots.map(lot => (
           <button
             key={lot.id}
             className="lot-card"
             onClick={() => router.push(`/lots/${lot.id}`)}
           >
-            <div className="lot-card-name">{lot.name}</div>
-            {lot.architectDesigner && (
-              <div className="lot-card-meta">{lot.architectDesigner}</div>
-            )}
-            {lot.publicSpace && (
-              <div className="lot-card-tag">public</div>
-            )}
+            <svg
+                className="lot-hex-bg"
+                viewBox="0 0 100 115"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+            >
+                <polygon points="50,0 100,29 100,86 50,115 0,86 0,29" />
+            </svg>
+            <div className="lot-hex-content">
+                <div className="lot-card-name">{lot.name}</div>
+                {lot.architectDesigner && (
+                <div className="lot-card-meta">{lot.architectDesigner}</div>
+                )}
+                {lot.publicSpace && (
+                <div className="lot-card-tag">public</div>
+                )}
+            { </div> }
           </button>
         ))}
 
         <button className="lot-card lot-card-add">
           <div className="lot-card-name">+ add structure</div>
         </button>
-      </div>
+      </div> */}
     </main>
   );
 }
