@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import HexGrid from "@/components/archive/HexGrid";
+import AddLotModal from "@/components/archive/modals/AddLotModal";
 
 
 interface Lot {
@@ -18,11 +19,13 @@ interface Neighborhood {
   lots: Lot[];
 }
 
+
 export default function NeighborhoodPage() {
   const { id } = useParams();
   const router = useRouter();
   const [neighborhood, setNeighborhood] = useState<Neighborhood | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showAddLot, setShowAddLot] = useState(false);
 
   useEffect(() => {
     async function fetchNeighborhood() {
@@ -49,39 +52,17 @@ export default function NeighborhoodPage() {
       </div>
 
       <div className="fractal-divider" />
-      <HexGrid lots={neighborhood.lots} neighborhoodId={neighborhood.id} />
-
-      {/*<div className="lots-grid">
-         {neighborhood.lots.map(lot => (
-          <button
-            key={lot.id}
-            className="lot-card"
-            onClick={() => router.push(`/lots/${lot.id}`)}
-          >
-            <svg
-                className="lot-hex-bg"
-                viewBox="0 0 100 115"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-            >
-                <polygon points="50,0 100,29 100,86 50,115 0,86 0,29" />
-            </svg>
-            <div className="lot-hex-content">
-                <div className="lot-card-name">{lot.name}</div>
-                {lot.architectDesigner && (
-                <div className="lot-card-meta">{lot.architectDesigner}</div>
-                )}
-                {lot.publicSpace && (
-                <div className="lot-card-tag">public</div>
-                )}
-            { </div> }
-          </button>
-        ))}
-
-        <button className="lot-card lot-card-add">
-          <div className="lot-card-name">+ add structure</div>
-        </button>
-      </div> */}
+      <HexGrid 
+        lots={neighborhood.lots} 
+        neighborhoodId={neighborhood.id} 
+        onAddLot={() => setShowAddLot(true)}
+      />
+      {showAddLot && (
+        <AddLotModal
+        neighborhoodId={neighborhood.id}
+        onClose={() => setShowAddLot(false)}
+        />
+      )}
     </main>
   );
 }

@@ -9,7 +9,7 @@ import LotHeader from "@/components/archive/LotHeader";
 import AudioPlayer from "@/components/archive/AudioPlayer";
 import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
-import MocapViewer from "@/components/archive/MocapViewer";
+import MocapViewer from "@/components/three/MocapViewer";
 
 
 export default function LotPage() {

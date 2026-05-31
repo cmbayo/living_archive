@@ -12,6 +12,7 @@ interface Lot {
 interface HexGridProps {
   lots: Lot[];
   neighborhoodId: number;
+  onAddLot: () => void;
 }
 
 const HEX_SIZE = 80;
@@ -35,7 +36,7 @@ function getHexPosition(index: number): { x: number; y: number } {
   return { x, y };
 }
 
-export default function HexGrid({ lots }: HexGridProps) {
+export default function HexGrid({ lots, neighborhoodId, onAddLot }: HexGridProps) {
   const router = useRouter();
   const allHexes = [...lots, null]; // null is the + add structure hex
 
@@ -61,7 +62,7 @@ export default function HexGrid({ lots }: HexGridProps) {
             className={isAdd ? "hex-add" : "hex-lot"}
             onClick={() =>
               isAdd
-                ? null
+                ? onAddLot()
                 : router.push(`/lots/${lot!.id}`)
             }
             style={{ cursor: "pointer" }}
