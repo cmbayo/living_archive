@@ -22,10 +22,11 @@
 
 ## Week 3 — Frontend core
 
-[ ] Location browser (map or grid view)
-[ ] 3D model viewer with React Three Fiber
-[ ] Audio playback attached to locations/characters
-[ ] Basic story display — layered, not linear
+[X] Lot page
+[X] Location browser (map or grid view)
+[X] 3D model viewer with React Three Fiber
+[X] Audio playback attached to locations/characters
+[X] Basic story display — layered, not linear
 
 ## Week 4 — User submission + polish
 

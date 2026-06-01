@@ -2,31 +2,45 @@ import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 // import { getMediaType, uploadFile } from "@/app/api/utils";
 import { AgeStage } from "@/app/generated/prisma/client"; // eventually MediaType, MediaOwner,
+import { MediaOwner } from "@/app/generated/prisma/client";
 
 export async function GET() {
-  const stories = await prisma.character.findMany({
+  const characters = await prisma.character.findMany({
     include: {
       story: true,
-    //   mediaAttachments: true,
       relationships: true,
       relatedTo: true
     },
   });
 
-  return Response.json({ data: stories });
+  // fetch media attachments for each character
+  const charactersWithMedia = await Promise.all(
+    characters.map(async character => {
+      const attachments = await prisma.mediaAttachment.findMany({
+        where: {
+          mediaOwner: MediaOwner.Character,
+          ownerId: character.id,
+        },
+        include: { media: true },
+      });
+      return { ...character, media: attachments.map(a => a.media) };
+    })
+  );
+
+  return Response.json({ data: charactersWithMedia });
 }
 
 export async function POST(request: NextRequest) {
     try {
-        const formData = await request.formData();
-        const name = formData.get("name") as string;
-        const backstory = formData.get("backstory") as string || null;
-        const currentAge = formData.get("currentAge") as AgeStage || AgeStage.Adult;
-        const timeTraveler = formData.get("timeTraveler") === "true";
+        const body = await request.json();
+        const name = body.name as string;
+        const backstory = body.backstory as string || null;
+        const currentAge = body.currentAge as AgeStage || AgeStage.Adult;
+        const timeTraveler = body.timeTraveler === "true";
 
-        const storyIdsRaw = formData.get("storyIds");
+        const storyIdsRaw = body.storyIds;
         const storyIds: number[] = storyIdsRaw ? JSON.parse(storyIdsRaw as string) : [];
-        const relationshipsRaw = formData.get("relationship");
+        const relationshipsRaw = body.relationship;
         const relationships: {
             relatedCharacterId: number;
             relationshipType: string;
