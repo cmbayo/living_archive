@@ -101,6 +101,7 @@ export default function LotPage() {
             <div className="section-title">movement</div>
             <MocapViewer mocapFiles={mocap} />
           </section>
+          
         )}
       </div>
 

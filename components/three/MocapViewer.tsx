@@ -6,6 +6,10 @@ import { OrbitControls, useAnimations } from "@react-three/drei";
 import { useFBX } from "@react-three/drei";
 import { Media } from "@/types";
 
+// TODO: 
+//  - make sure you can change the size of the characters
+//  - you can't move them around like you can the structures
+//  - move them to where the structures are 
 function FBXModel({ url }: { url: string }) {
   const fbx = useFBX(url);
   const { actions, names } = useAnimations(fbx.animations, fbx);

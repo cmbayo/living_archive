@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { MediaOwner } from "@/app/generated/prisma/client";
+import { MediaOwner, MediaType } from "@/app/generated/prisma/client";
 
 export async function GET(
   _: Request,
@@ -39,7 +39,34 @@ export async function GET(
       },
     });
 
-    const media = attachments.map(a => a.media);
+    // fetch characters attached to this lot
+    // 1. Go through the events and get the character Id
+    const characterIds = [
+      ...new Set(
+        lot.events.map(e => e.characterId)
+                  .filter((id): id is number => id != null)
+      ),
+    ];
+    // 2. From the character Id get the mocap data
+    const mocap = await prisma.mediaAttachment.findMany({
+      where: {
+        mediaOwner: MediaOwner.Character,
+        ownerId: {
+          in: characterIds,
+        },
+        media: {
+          type: MediaType.Mocap,
+        },
+      },
+      include: {
+        media: true,
+      },
+    });
+    // 3. appened it to media? 
+    const media = [
+      ...attachments.map(a => a.media),
+      ...mocap.map(a => a.media),
+    ];
 
     return Response.json({ data: { lot, media } });
   } catch (error) {
