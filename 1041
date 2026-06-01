@@ -1,0 +1,1044 @@
+    1  git --version
+    2  brew install docker
+    3  ls
+    4  cd Documents
+    5  ls
+    6  mkdir COL
+    7  cd COL
+    8  mkdir "digital archive"
+    9  ls
+   10  cd digital\ archive
+   11  ls
+   12  git -version
+   13  git --version
+   14  git --version
+   15  brew --version
+   16  cd ..
+   17  ls
+   18  cd ..
+   19  ls
+   20  vim safe.txt
+   21  ls
+   22  mv safe.txt .safe.txt
+   23  ls
+   24  ls -la
+   25  cat .localized
+   26  cd ..
+   27  ls
+   28  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   29  brew install --cask box-drive
+   30  ping google.com
+   31  ping google.com
+   32  ping google.com
+   33  ping google.com
+   34  ping google.com
+   35  ping google.com
+   36  ping google.com
+   37  ping google.com
+   38  ping google.com
+   39  ping google.com
+   40  ping google.com
+   41  ping google.com
+   42  ping google.com
+   43  ping google.com
+   44  ping google.com
+   45  ping google.com
+   46  ping google.com
+   47  ping google.com
+   48  ping google.com
+   49  ping google.com
+   50  ping google.com
+   51  ping google.com
+   52  ping google.com
+   53  ping google.com
+   54  ping google.com
+   55  ping google.com
+   56  ping google.com
+   57  ping google.com
+   58  ping google.com
+   59  ping google.com
+   60  ping google.com
+   61  ping google.com
+   62  ping google.com
+   63  ping google.com
+   64  ping google.com
+   65  ping google.com
+   66  ping google.com
+   67  ping google.com
+   68  ping google.com
+   69  ping google.com
+   70  ping google.com
+   71  ping google.com
+   72  cd Documents
+   73  mkdir screenshots
+   74  ping google.com
+   75  ping google.com
+   76  ping google.com
+   77  ping google.com
+   78  ping google.com
+   79  ls
+   80  cd Documents
+   81  ls
+   82  mkdir .bins
+   83  mv dancing\ into\ the\ revolution.* .bins
+   84  cd ../Downloads
+   85  ls
+   86  mv *.HEIC ../Documents/.bins
+   87  ls
+   88  mv *.jpg ../Documents/.bins
+   89  mv *.MOV ../Documents/.bins
+   90  ls
+   91  mv *.JPG ../Documents/.bins
+   92  mv *.heic ../Documents/.bins
+   93  ls
+   94  ls -l
+   95  cd ../Desktop
+   96  mv *.3gp ../Documents/.bins
+   97  mv *.jpg ../Documents/.bins
+   98  ls
+   99  mv *.png ../Documents/screenshots
+  100  ls
+  101  cd ..
+  102  ls
+  103  cd Documents
+  104  ls
+  105  touch portfolio
+  106  open portfolio
+  107  open .bins
+  108  open .bins
+  109  clear
+  110  ping google.com
+  111  ping google.com
+  112  ping google.com
+  113  ping google.com
+  114  ping google.com
+  115  ping google.com
+  116  ping google.com
+  117  ping google.com
+  118  ping google.com
+  119  ls
+  120  cd Documents
+  121  mv .bins cuba
+  122  ping google.com
+  123  ping google.com
+  124  ping google.com
+  125  cd Downloads
+  126  open _OceanofDMG.com_autodesk_autocad_2018.2_mac_osx.dmg
+  127  open _OceanofDMG.com_autodesk_autocad_2018.2_mac_osx.dmg
+  128  sudo spctl --master-disable\n\n
+  129  open _OceanofDMG.com_autodesk_autocad_2018.2_mac_osx.dmg
+  130  cd Library/Application Support/Autodesk
+  131  cd Library/'Application Support'
+  132  ls -l
+  133  cd Autodesk
+  134  ls -l
+  135  ls -la
+  136  pip install spotdl
+  137  brew install pip 
+  138  brew install python3
+  139  pip install python
+  140  brew install python
+  141  pip install spotdl
+  142  pip3 install spotdl
+  143  cd ..
+  144  cd ..
+  145  cd .. 
+  146  cd Documents/music
+  147  la
+  148  ls
+  149  ls -l
+  150  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  151  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  152  pip3 install spotdl
+  153  spotdl
+  154  python3 -m pip install spotdl
+  155  python -m pip install --upgrade pip\n
+  156  python3 -m pip install --upgrade pip\n
+  157  /Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip
+  158  pip
+  159  vim ~/.zshrc
+  160  pip
+  161  cat ~/.zshrc
+  162  cat /usr/local/bin
+  163  ls
+  164  cat /usr/local/bin/pip3
+  165  cat /usr/local/bin/pip3
+  166  cd Documents/music
+  167  pip3 install spotdl
+  168  history 150
+  169  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  170  pip3 unistall spotdl
+  171  pip3 uninstall spotdl
+  172  pip3 install spotdl
+  173  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  174  which pip3
+  175  pip3 uninstall spotdl
+  176  which pip3
+  177  which pip
+  178  source ~/.zshrc
+  179  which pip
+  180  which pip3
+  181  vim ~/.zshrc
+  182  cat ~/.zshrc
+  183  cat /usr/local/bin/pip3
+  184  vim ~/.zshrc
+  185  source ~/.zshrc
+  186  pip
+  187  which pip
+  188  which pip3
+  189  pip3 --version
+  190  history 0
+  191  which pip3
+  192  pip3 install spotdl
+  193  brew install pipx
+  194  pipx install spotdl
+  195  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  196  cd Documents
+  197  ls
+  198  cd ..
+  199  ls -l
+  200  cd new2
+  201  ls
+  202  which pi3
+  203  which pip3
+  204  pip3 --version
+  205  pip --version
+  206  pip3 install spotdl
+  207  pipx install spotdl
+  208  spotdl
+  209  pipx ensurepath
+  210  pipx completions
+  211  spotdl
+  212  source ~/.zshrc
+  213  which spotdl
+  214  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  215  cd Documents/music
+  216  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  217  open spotdl
+  218  pipx unistall spotdl
+  219  pipx uninstall spotdl
+  220  pipx install spotdl --python python3.13
+  221  brew install python@3.12
+  222  pipx install spotdl --python python3.12
+  223  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  224  spotdl --version
+  225  which spotdl
+  226  spotdl -h
+  227  spotdl --version
+  228  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"\n\n
+  229  vim ~/.zshrc
+  230  source ~/.zshrc
+  231  hello
+  232  echo $RANDOM_THEME
+  233  spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  234  python3 -m spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  235  python -m spotdl https://open.spotify.com/track/0VjzaXw81JQJM61pzWwP8b
+  236  python3
+  237  pipx ensurepath
+  238  pipx environment
+  239  pipx run ruff check .
+  240  clear
+  241  cd Documents
+  242  ls -l
+  243  cd portfolio
+  244  ls
+  245  ls-l
+  246  ls -l
+  247  cd ..
+  248  mkdir project
+  249  cd project
+  250  git clone https://github.com/cmbayo/camsk8tes.git camsk8tes
+  251  ls 
+  252  ..
+  253  ls
+  254  ..
+  255  ls
+  256  cd Documents
+  257  ls
+  258  mkdir .ssh
+  259  cd .ssh
+  260  ls -larths
+  261  cd ..
+  262  ls -larths
+  263  cd .ssh
+  264  ssh-keygen -b 4096 -t rsa
+  265  ls -la
+  266  less id_rsa.pub
+  267  ssh-keygen -b 4096 -t rsa
+  268  less id_rsa.pub\n
+  269  cd ..
+  270  ls
+  271  rmdir .ssh
+  272  ..
+  273  less id_rsa.pub
+  274  cd .ssh
+  275  less id_rsa.pub
+  276  rm id_rsa*
+  277  ls 
+  278  ssh-keygen -b 4096 -t rsa
+  279  vim ~/.zshrc
+  280  echo $HOME
+  281  ls -la
+  282  rm -r cam
+  283  history 
+  284  ssh-keygen -b 4096 -t rsa
+  285  ls
+  286  ls -l
+  287  ls -la
+  288  cat /Users/new2/.ssh/id_rsa
+  289  cat /Users/new2/.ssh/id_rsa.pub
+  290  history
+  291  ls -la
+  292  cd Documents/project
+  293  ls
+  294  git clone https://github.com/cmbayo/camsk8tes.git camsk8tes
+  295  ssh -T git@github.com
+  296  git clone https://github.com/cmbayo/camsk8tes.git camsk8tes
+  297  echo "$SSH_AUTH_SOCK"
+  298  ssh -T git@github.com
+  299  git clone git@github.com:cmbayo/camsk8tes.git
+  300  ls -l
+  301  cd Documents/project/camsk8tes
+  302  ls -la
+  303  cd camsk8tes/
+  304  ls
+  305  git track
+  306  git --help
+  307  git checkout -b jpg-to-text
+  308  git add .
+  309  git commit -m "testing new keys"
+  310  git push 
+  311  git push --set-upstream origin jpg-to-text
+  312  cd Desktop
+  313  cd temp
+  314  rm ues_weekday_morning_crowd02.zip ues_weekday_morning_crowd03.zip ues_weekday_morning_crowd04.zip ues_weekday_morning_crowd05.zip ues_weekday_morning_crowd06.zip ues_weekday_morning_crowd07.zip ues_weekday_morning_crowd08.zip ues_weekday_morning_crowd09.zip ues_weekday_morning_crowd10.zip 
+  315  sl
+  316  cd 
+  317  cd Desktop/
+  318  ls
+  319  ..
+  320  cd Documents
+  321  ls
+  322  ls -l 
+  323  cd project
+  324  ls 
+  325  mkdir living_archive
+  326  cd living_archive
+  327  man npm
+  328  npm -version
+  329  brew install npm
+  330  node -v
+  331  npm -v
+  332  git init
+  333  npx create-next-app@latest . --yes
+  334  ls -l
+  335  git add .
+  336  git commit -m "Initial commit"
+  337  git push
+  338  git push main
+  339  git push --set-upstream main main
+  340  gh -v
+  341  brew install gh
+  342  gh auth login
+  343  gh repo create living_archive --private --source=. -r=origin --push
+  344  npm run dev
+  345  ls 
+  346  mkdir docs
+  347  cd docs/
+  348  touch decisions.md
+  349  touch specs.md
+  350  touch architecture.md
+  351  ls
+  352  git add .
+  353  git commit -m "add barebones documentation infrastructure"
+  354  git push
+  355  ls
+  356  git add . 
+  357  git commit -m "pre living archive decisions"
+  358  git push
+  359  git add .
+  360  git commit -m "added dates to decision"
+  361  git push 
+  362  git add . 
+  363  git commit -m "added to do"
+  364  git push 
+  365  git add . 
+  366  git commit -m "clean up readme"
+  367  git push 
+  368  git add .
+  369  git commit -m "added draw from text"
+  370  git push 
+  371  git add .
+  372  git commit -m "cleaned up index html "
+  373  git push 
+  374  cd Documents/clear\ moon\ works/petit\ don/lutashi\ river\ resotration
+  375  ls
+  376  cd POI
+  377  ls
+  378  vim temp.csv
+  379  cd docs
+  380  touch timeline.md
+  381  git add .
+  382  git commit -m "added detailed timeline for 10 month"
+  383  git push 
+  384  git config --global --edit
+  385  git push
+  386  ping google.com
+  387  ls 
+  388  cd Documents
+  389  ls
+  390  cd me
+  391  cd media
+  392  ls
+  393  cd music
+  394  ls
+  395  ..
+  396  ls
+  397  touch music
+  398  open music
+  399  ls
+  400  cd ../project
+  401  ls
+  402  ln -s strategies\ for\ liberation ../clear\ moon\ works/smt/strategies\ for\ liberation
+  403  cd ../clear\ moon\ works/smt
+  404  ls
+  405  ls -l
+  406  ls
+  407  rm strategies\ for\ liberation
+  408  ln -s ../../project/strategies\ for\ liberation sfl
+  409  ping google.com
+  410  clear
+  411  ping google.com
+  412  clear
+  413  ls
+  414  cd ..
+  415  ls
+  416  git add .
+  417  git commit -m 
+  418  git commit -m "decisions to use ai"
+  419  git push 
+  420  git add .
+  421  git commit -m "decisions to use ai"
+  422  git push 
+  423  ls
+  424  find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.next/*"\n
+  425  cat package.json\n
+  426  git checkout -b trying-claude
+  427  ls -l
+  428  bash setup.sh
+  429  npm run dev
+  430  git add . 
+  431  git commit -m "feat: scaffold Next.js component architecture"
+  432  git push 
+  433  git push --set-upstream origin trying-claude
+  434  source /Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh
+  435  git add .
+  436  git commit -m "trying new things here"
+  437  git push 
+  438  git push --set-upstream origin cursor-help
+  439  echo $Shell
+  440  echo $0
+  441  brew install wireshark
+  442  ping google.com 
+  443  ping 
+  444  ping -m 
+  445  ping -c google.com
+  446  ping google.com
+  447  ping -m 116
+  448  cd Documents/project
+  449  ls
+  450  cd living_archive
+  451  git branch main
+  452  git checkout main
+  453  ls -l
+  454  git branch mvp
+  455  git checkout mvp
+  456  git add .
+  457  git commit -m "changed timeline"
+  458  git push 
+  459  git push --set-upstream origin mvp
+  460  git add . 
+  461  git commit -m "changed architecture"
+  462  git push 
+  463  npm install prisma @prisma/client
+  464  npm audit fix
+  465  npm audit fix --force
+  466  npx prisma init
+  467  vim prisma.config.ts
+  468  prisma db pull
+  469  npx prisma db pull
+  470  npx prisma db push
+  471  npm i dotenv
+  472  npx primsa db pull
+  473  npm install prisma --save-dev
+  474  npx prisma init
+  475  vim prisma.config.ts
+  476  npm install --save-dev prisma dotenv
+  477  vim prisma.config.ts
+  478  npx primsa db pull
+  479  npx prisma init
+  480  npx prisma db pull
+  481  vim prisma.config.ts
+  482  vim .env
+  483  npx prisma init
+  484  npx prisma db pull
+  485  git add .
+  486  git commit -m "prisma database connection"
+  487  git push 
+  488  vim .env
+  489  vim .gitignore
+  490  git add .
+  491  git commit -m "added more security"
+  492  git push 
+  493  vim .gitignore
+  494  npx prisma db pull
+  495  npx prisma init
+  496  vim prisma/schema.prisma
+  497  npx prisma db pull
+  498  vim prisma/schema.prisma
+  499  cd Documents/project/living_archive
+  500  ls
+  501  vim prisma.config.ts
+  502  cd Documents/project/living_archive/prisma
+  503  ls
+  504  ls -la
+  505  cd ..
+  506  ls
+  507  ls -la
+  508  cat .env
+  509  npx prisma --version
+  510  vim .env
+  511  npx prisma db pull
+  512  cd prisma
+  513  ls
+  514  cat schema.prisma
+  515  npx prisma db push
+  516  cd..
+  517  npx prisma db push
+  518  cd ..
+  519  ls
+  520  npx prisma db push
+  521  ls -l
+  522  cd app
+  523  ls
+  524  ls -l
+  525  mkdir api
+  526  git add .
+  527  git commit -m "database schema created"
+  528  git push 
+  529  touch upload
+  530  ls -l
+  531  rm upload
+  532  cd api
+  533  touch upload
+  534  ls
+  535  npm install @supabase/supabase-js
+  536  npm fund
+  537  vim .env
+  538  rm upload
+  539  mkdir upload
+  540  touch route.ts
+  541  ls
+  542  ls 
+  543  ls -l
+  544  mkdir lib
+  545  ls -l
+  546  cd lib
+  547  touch supabase.ts
+  548  cd ..
+  549  cat .env
+  550  npx prisma generate
+  551  cd app/generated/prisma
+  552  ls -la
+  553  cd ../../..
+  554  npm install @prism/adapter-pg
+  555  npm install @prisma/adapter-pg
+  556  ls -l
+  557  cd ..
+  558  git add .
+  559  git commit -m "added first route"
+  560  git push
+  561  npm run dev
+  562  history
+  563  history | grep version
+  564  curl --version
+  565  curl -X POST http://localhost:3000/api/media \ -F "file=/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" \ -F "type=Audio"
+  566  curl -X POST http://localhost:3000/api/media \ -F "file=@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" \ -F "type=Audio"
+  567  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" -F "type=Audio"
+  568  cd Documents/project/living_archive
+  569  ls app/api/media
+  570  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" -F "type=Audio"
+  571  vim .env
+  572  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" -F "type=Audio"
+  573  cat .env 
+  574  vim .env
+  575  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3" -F "type=Audio"
+  576  curl https://jygpwjptxcrazavfckyh.supabase.co/storage/v1/bucket
+  577  ls -lh "/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3"
+  578  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  579  curl -X POST "https://jygpwjptxcrazavfckyh.supabase.co/storage/v1/object/archive-media/test.mp3" \\n  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp5Z3B3anB0eGNyYXphdmZja3loIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODkzOTEwNywiZXhwIjoyMDk0NTE1MTA3fQ.xnw4K5XDOBsSMS0mqwExiCv2J7zvXxdAYpljd5v1ZPI" \\n  -H "Content-Type: audio/mpeg" \\n  --data-binary "@/Users/new2/Documents/media/music/Zap Mama - Africa Sunset.mp3"
+  580  ls 
+  581  git add .
+  582  git commit -m "deploying to vercel to test the first endpoint"
+  583  git push 
+  584  cat .env
+  585  npm run dev
+  586  git add . 
+  587  git commit -m "add prisma generate to build"
+  588  git push
+  589  cat package.json | grep build\n
+  590  history | grep npm
+  591  cd Documents/project/living_archive
+  592  cat package.json | grep -A 20 "devDependencies"\n
+  593  cat package.json | grep -A 20 '"dependencies"'\n
+  594  git add . 
+  595  git commit -m "move prisma to dependencies"
+  596  git push 
+  597  git add .
+  598  git commit -m "removed engine classic from prisma.config.ts"
+  599  git push 
+  600  curl -X POST living-archive-gzr5bzuvn-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"
+  601  curl -X POST https://living-archive-gzr5bzuvn-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  602  npm run dev
+  603  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  604  curl -X POST https://living-archive-gzr5bzuvn-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  605  git add . 
+  606  git commit -m "error message added to media upload"
+  607  git push
+  608  git add .
+  609  git commit -m "added null options for mediaowner and ownerid"
+  610  git push
+  611  clear
+  612  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  613  curl -X POST https://living-archive-gzr5bzuvn-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  614  cat .env | grep SERVICE_ROLE\n
+  615  cat .env
+  616  cat .env | grep SERVICE_KEY\n
+  617  git add .
+  618  git commit -m "debugging to see what's going on"
+  619  git add .
+  620  git commit -m "debugging to see what's going on"
+  621  gitp ush
+  622  git push
+  623  curl -X POST https://living-archive-gzr5bzuvn-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  624  curl -X POST https://lliving-archive-cew0p5y00-clearmoon-projects.vercel.app -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  625  curl -X POST https://living-archive-cew0p5y00-clearmoon-projects.vercel.app -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"
+  626  curl -X POST https://living-archive-cew0p5y00-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  627  git add .
+  628  git commit -m "debugging message in utils"
+  629  git push 
+  630  curl -X POST https://living-archive-jkxo0u4gm-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  631  cat .env| grep URL
+  632  vim .env
+  633  npm run dev
+  634  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  635  vim .env
+  636  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  637  curl -X POST https://living-archive-jkxo0u4gm-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  638  curl -X POST https://living-archive-77kzyyoqj-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  639  curl -X POST https://living-archive-2k5mupnkk-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  640  cat .env
+  641  clear
+  642  curl -X POST https://living-archive-ltp5peeov-clearmoon-projects.vercel.app/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  643  history
+  644  npm run dev
+  645  clear
+  646  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  647  brew install curl
+  648  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  649  /opt/homebrew/opt/curl/bin/curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"
+  650  ls /usr/local/opt/curl/bin
+  651  ls /usr/local/opt/curl/bin/curl
+  652  brew --prefix curl
+  653  /usr/local/opt/curl/bin/curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"
+  654  export PATH="/usr/local/opt/curl/bin:$PATH"\n
+  655  git add .
+  656  git commit -m "clean up debug logs"
+  657  git push
+  658  git checkout -b mvp-week-2-api
+  659  git add .
+  660  git commit -m "updated timeline"
+  661  git push
+  662  git push --set-upstream origin mvp-week-2-api
+  663  npm run dev
+  664  clear
+  665  curl -X POST https://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  666  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Vera Hall - The Wild Ox Moan.mp3" -F "type=Audio"\n
+  667  curl -I https://jygpwjptxcrazavfckyh.supabase.co/storage/v1/object/public/archive-media/be889dac-1799-4743-8d0d-c172496095e0.mp3
+  668  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Sauti Sol - Intro.mp3" -F "type=Audio"\n
+  669  git add .
+  670  git commit -m "fixed bug with contentType"
+  671  git push
+  672  git config -l
+  673  git config --global user.name "cmbayo"
+  674  git config -l
+  675  git add . 
+  676  git commit -m "attempting to connect to github rep"
+  677  git push
+  678  mkdir app/api/lots
+  679  mkdir app/api/neighborhoods
+  680  git add .
+  681  git commit -m "added Lots + Neighborhood route GET and POST"
+  682  git push 
+  683  git mkdir app/api/event
+  684  git mkdir app/api/story
+  685  git mkdir app/api/characters
+  686  mkdir app/api/characters
+  687  mkdir app/api/events
+  688  mkdir app/api/stories
+  689  git add . 
+  690  git commit -m "Added Stories + Events"
+  691  git push 
+  692  git add . 
+  693  git commit -m "added Characters GET & POST"
+  694  git push 
+  695  mkdir app/api/relationships
+  696  git add .
+  697  git commit -m "Added Relationship route"
+  698  git push 
+  699  jupyter notebook
+  700  brew install jupyter
+  701  jupyter notebook
+  702  pip3 install duckdb
+  703  pip install duckdb
+  704  pip --version
+  705  pip3 --version
+  706  python
+  707  python3
+  708  python3 -m pip install duckdb
+  709  brew cleanup
+  710  python3 -m pip install duckdb
+  711  cd Documents/project
+  712  ls
+  713  cd ..
+  714  ls
+  715  cd job\ apps
+  716  ls
+  717  python3 -m venv .venv
+  718  jupyter notebook
+  719  python3 --version
+  720  which python3
+  721  brew list | grep python
+  722  which -a python3
+  723  ls -l $(which python3)
+  724  brew --prefix python@3.12
+  725  cat ~/.zshrc
+  726  export PATH="/usr/local/opt/python@3.12/bin:$PATH"
+  727  python3 --version
+  728  brew unlink python@3.14
+  729  brew uninstall jupyter
+  730  brew uninstall jupyter notebook
+  731  ls -ld /usr/local/var/homebrew
+  732  ls -ld /usr/local/var/homebrew/locks
+  733  whoami
+  734  sudo chown -R $(whoami) /usr/local/var/homebrew
+  735  ls -ld /usr/local/var/homebrew/locks
+  736  ls -ld /usr/local/var/homebrew
+  737  brew uninstall jupyter
+  738  brew uninstall jupyterlab
+  739  sudo chown -R $(whoami) /usr/local/etc
+  740  brew uninstall jupyterlab
+  741  sudo chown -R $(whoami) /usr/local/share/zsh
+  742  brew uninstall jupyterlab
+  743  sudo chown -R $(whoami) /usr/local/Cellar/jupyterlab
+  744  brew uninstall jupyterlab
+  745  sudo chown -R $(whoami) /usr/local/share/man
+  746  brew uninstall jupyterlab
+  747  brew clean up
+  748  brew autoremove\nbrew cleanup
+  749  clear
+  750  brew autoremove\nbrew cleanup
+  751  sudo rm -rf /usr/local/Cellar/pandoc/3.9.0.2
+  752  brew autoremove\nbrew cleanup
+  753  clear
+  754  brew autoremove\nbrew cleanup
+  755  sudo chown -R $(whoami) /usr/local/lib
+  756  sudo chown -R $(whoami) /usr/local/Cellar
+  757  brew autoremove\nbrew cleanup
+  758  jupyter notebook
+  759  brew which python
+  760  history
+  761  brew list | grep python\n
+  762  which python
+  763  which python3
+  764  python3 --version
+  765  pip3 insstall notebook
+  766  pip3 install notebook
+  767  brew reinstall python@3.14
+  768  sudo chown -R thunderspeaker /usr/local/Homebrew /usr/local/share/aclocal /usr/local/share/doc /usr/local/share/info /usr/local/share/locale /usr/local/var/log
+  769  chmod u+w /usr/local/Homebrew /usr/local/share/aclocal /usr/local/share/doc /usr/local/share/info /usr/local/share/locale /usr/local/var/log
+  770  brew reinstall python@3.14
+  771  pip3 install notebook
+  772  jupyter notebook
+  773  notebook
+  774  /Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip
+  775  pip3 install notebook
+  776  jupyter notebook
+  777  pip3 install duckdb
+  778  brew install duckdb
+  779  python3 -m notebook
+  780  python3 -m pip install --user jupyter
+  781  cd Documents/project
+  782  ls
+  783  git clone https://github.com/forecastingresearch/fri-data-engineering-1hr-test.git
+  784  ls
+  785  cd fri-data-engineering-1hr-test
+  786  python3 setup.py
+  787  duckdb fri_worktest.duckdb
+  788  cd Documents/project/fri-data-engineering-1hr-test
+  789  ls -l
+  790  jupyter notebook
+  791  python3 -m notebook
+  792  python3 -m venv gen-data
+  793  source gen-data
+  794  source gen-data/bin/activate
+  795  pip3 install numpy
+  796  pip3 install pandas
+  797  cd Documents/project/fri-data-engineering-1hr-test
+  798  python3 -m notebook
+  799  source gen-data/bin/activate
+  800  python3 -m notebook
+  801  source deactivate
+  802  deactivate
+  803  source gen-data/bin/activate
+  804  jupyter notebook
+  805  python3 -m pip install --user jupyter
+  806  jupyter notebook
+  807  ls ~/Library/Python/3.9/bin
+  808  echo 'export PATH="$HOME/Library/Python/3.9/bin:$PATH"' >> ~/.zshrc\n
+  809  source ~/.zshrc
+  810  jupyter notebook
+  811  clear
+  812  cd Documents/project
+  813  ls
+  814  cd fri-data-engineering-1hr-test
+  815  source gen-data/bin/activate
+  816  jupyter notebook
+  817  cd Documents/project/fri-data-engineering-1hr-test
+  818  ls
+  819  source gen-data/bin/activate
+  820  which python
+  821  which python3
+  822  which pip3
+  823  pip3 install gen-data
+  824  pip3 install pandas
+  825  pip3 install jupyter
+  826  jupyter notebook
+  827  clear
+  828  jupyter notebook
+  829  pip3 install ipykernel
+  830  python -m ipykernel install --user --name=gen-data --display-name "Python (gen-data)"\n\n
+  831  jupyter notebook
+  832  duckdb fri_worktest.duckdb
+  833  source /Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh
+  834  jupyter notebook
+  835  duckdb fri_worktest.duckdb
+  836  cd Documents/project/fri-data-engineering-1hr-test
+  837  ls
+  838  cd docs
+  839  touch test.sh
+  840  cd Documents/project/living_archive
+  841  npm rum dev
+  842  cd Documents/project/living_archive
+  843  curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Mbongwana Star - From Kinshasa to the Moon.mp3" -F "type=Audio" 
+  844  chmod +x docs/test.sh
+  845  ./docs/test.sh
+  846  curl -s -x POST http://localhost:3000/api/neighborhoods \ \n    -H "Content-Type: application/json" \\n    -d '{"name": "Neighborhood A"}'
+  847  curl -s -x POST http://localhost:3000/api/neighborhoods  -H "Content-Type: application/json" -d '{"name": "Neighborhood A"}'
+  848  curl -s -X POST http://localhost:3000/api/neighborhoods -H "Content-Type: application/json" -d '{"name": "Neighborhood A"}'
+  849  curl -s -X POST http://localhost:3000/api/neighborhoods -F "name=Neighborhood A"
+  850  ./docs/test.sh
+  851  cd ..
+  852  git add .
+  853  git commit -m "adding testing endpoints neighborhood & lot"
+  854  git push 
+  855  ./docs/test.sh
+  856  npx prisma db push
+  857  npx prisma generate
+  858  ./docs/test.sh
+  859  npm run dev
+  860  ./docs/test.sh
+  861  git add .
+  862  git commit -m 
+  863  git commit -m "end points basic test"
+  864  git push 
+  865  clear
+  866  git push 
+  867  ./docs/test.sh
+  868  git add .
+  869  git commit -m "added GET test"
+  870  git push 
+  871  git add .
+  872  git commit -m "updated timeline"
+  873  git push
+  874  git branch checkout main
+  875  git pull
+  876  git checkout -b week-3-frontend
+  877  git checkout week-3-frontend
+  878  npm install three @react-three/fiber @react-three/drei\n
+  879  npm install --save-dev @types/three\n
+  880  cd app/
+  881  ls -l
+  882  mkdir lots
+  883  cd lots
+  884  mkdir [id]
+  885  mkdir "[id]"
+  886  ls
+  887  cd '[id]/'
+  888  touch page.tsx
+  889  cd ../../..
+  890  cd app/api/lots
+  891  mkdir '[id]'
+  892  cd '[id]/'
+  893  touch route.ts
+  894  curl http://localhost:3000/api/lots/1You said: Property 'Location' does not exist on type '{ readonly Lot: "Lot"; readonly Neighborhood: "Neighborhood"; readonly Story: "Story"; readonly Character: "Charact…\ncurl http://localhost:3000/api/lots/1\n\nclear
+  895  clear
+  896  curl http://localhost:3000/api/lots/1
+  897  curl http://localhost:3000/api/lots/2
+  898  curl http://localhost:3000/api/lots
+  899  curl http://localhost:3000/api/lots/1
+  900  git add .
+  901  git commit -m "adding basic lots view"
+  902  git push
+  903  cd ..
+  904  cd .
+  905  cd ..
+  906  ls -l
+  907  cd ..
+  908  ls
+  909  ls -l
+  910  mkdir components
+  911  cd components
+  912  mkdir three | cd three
+  913  mkdir three 
+  914  cd three
+  915  touch ModelViewer.tsx
+  916  cd ..
+  917  mkdir archive
+  918  cd archive
+  919  touch LotHeader.tsx
+  920  touch AudioPlayer.tsx
+  921  touch EventList.tsx
+  922  touch PhotoGrid.tsx
+  923  touch MocapViewer.tsx
+  924  cd ..
+  925  ls -l
+  926  cd ..
+  927  ls -l
+  928  mkdir types
+  929  cd types
+  930  touch index.ts
+  931  git add .
+  932  git commit -m "lot page in progress"
+  933  git push
+  934  cd ..
+  935  git add .
+  936  git commit -m "lot page in progress"
+  937  git push 
+  938  curl http://localhost:3000/api/lots/1
+  939  curl http://localhost:3000/api/media\n
+  940  curl -I "https://jygpwjptxcrazavfckyh.supabase.co/storage/v1/object/public/archive-media/f0509830-10d7-4227-a849-670c6990060f.mp3"
+  941  git add . 
+  942  git commit -m "lot page mediaviewer and basic information done"
+  943  git push 
+  944  history | grep npm
+  945  nmp run dev
+  946  npm run dev
+  947  netsh wlan show profile
+  948* cd ..
+  949* ls
+  950* cd mkdir other
+  951* mkdir other && cd other
+  952* jupyter notebook
+  953  history | grep pip3
+  954  pip3 install urllib
+  955  pip3 install requests
+  956  pip3 install lxml
+  957* cd Documents/project/fri-data-engineering-1hr-test
+  958* ls
+  959* history | grep venv
+  960* history | grep gen-data
+  961* source gen-data/bin/activate
+  962* pip3 install lxml
+  963* cd app/api/media
+  964* mkdir attach && cd attach && touch route.ts
+  965* cd ..
+  966* cd living_archive
+  967* cd ../fri-data-engineering-1hr-test
+  968* history | grep deactive
+  969* history | grep deactivate
+  970* source deactivate
+  971* deactivate
+  972* cd ../living_archive
+  973* ls
+  974* history | grep npm
+  975* npm run dev
+  976  curl -X GET http://localhost:3000/api/media
+  977  curl -s -X POST http://localhost:3000/api/media/attach \ -H "Content-Type: application/json" \ -d '{"mediaId": 5, "mediaOwner": "Lot", "ownerId": 1}'
+  978  curl -s -X POST http://localhost:3000/api/media/attach \ -H "Content-Type: application/json"  -d '{"mediaId": 5, "mediaOwner": "Lot", "ownerId": 1}'
+  979  curl -X GET http://localhost:3000/api/media
+  980* cd ..
+  981* git add .
+  982* git commit -m "added attachmedia route to test one audio file" 
+  983* git push
+  984  curl http://localhost:3000/api/neighborhoods/3\n
+  985  curl http://localhost:3000/api/neighborhoods/3 | json\n
+  986  npm install -g json
+  987  curl http://localhost:3000/api/neighborhoods/3 | json\n
+  988  curl http://localhost:3000/api/neighborhoods/3 | jq\n
+  989  curl http://localhost:3000/api/neighborhoods/3\n
+  990* cd app/api/neighborhoods
+  991* ls -la
+  992* cd [id]
+  993* ls
+  994* ls -l
+  995* cd \[id\]
+  996* ls -l
+  997  curl http://localhost:3000/api/neighborhoods/3\n
+  998  curl http://localhost:3000/api/neighborhoods/3 | jq\n
+  999  curl http://localhost:3000/api/neighborhoods/1 | jq\n
+ 1000  curl http://localhost:3000/api/neighborhoods/2 | jq\n
+ 1001  curl http://localhost:3000/api/neighborhoods/3 | jq\n
+ 1002  curl http://localhost:3000/api/neighborhoods/4 | jq\n
+ 1003  curl http://localhost:3000/api/neighborhoods/5 | jq\n
+ 1004  curl http://localhost:3000/api/neighborhoods/6 | jq\n
+ 1005  curl http://localhost:3000/api/neighborhoods/7 | jq\n
+ 1006  curl http://localhost:3000/api/neighborhoods/9 | jq\n
+ 1007  curl http://localhost:3000/api/neighborhoods/12 | jq\n
+ 1008  curl http://localhost:3000/api/neighborhoods/113 | jq\n
+ 1009  curl http://localhost:3000/api/neighborhoods/13 | jq\n
+ 1010  curl http://localhost:3000/api/neighborhoods/14 | jq\n
+ 1011  curl http://localhost:3000/api/neighborhoods/15 | jq\n
+ 1012  curl http://localhost:3000/api/neighborhoods/14 | jq\n
+ 1013* git add .
+ 1014* git commit -m "added neighborhood id route"
+ 1015* git push
+ 1016* cd ..
+ 1017* ls
+ 1018* cd ..
+ 1019* ls
+ 1020* cd ..
+ 1021* ls
+ 1022* ls -l
+ 1023* mkdir neighborhoods
+ 1024* cd ..
+ 1025* git add .
+ 1026* git commit -m "neighborhood page as tiles"
+ 1027* git push
+ 1028* git add .
+ 1029* git commit -m "added hexagones to the neighborhood view"
+ 1030* git push
+ 1031* cd components/archive/modals
+ 1032* touch AddCharacterModal.tsx
+ 1033* touch AddEventModal.tsx
+ 1034* touch AddStoryModal.tsx
+ 1035* cd ../../..
+ 1036* git add .
+ 1037* git commit -m "modal to add lot is done"
+ 1038* git push 
+ 1039* npm run dev
+ 1040  curl http://localhost:3000/api/characters\n
+ 1041  curl http://localhost:3000/api/characters | jq\n
+ 1042  history | grep jq
+ 1043  history 1041
+ 1044  history | 1041

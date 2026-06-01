@@ -18,15 +18,15 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
     try {
-        const formData = await request.formData();
-        const name = formData.get("name") as string;
-        const backstory = formData.get("backstory") as string || null;
-        const currentAge = formData.get("currentAge") as AgeStage || AgeStage.Adult;
-        const timeTraveler = formData.get("timeTraveler") === "true";
+        const body = await request.json();
+        const name = body.name as string;
+        const backstory = body.backstory as string || null;
+        const currentAge = body.currentAge as AgeStage || AgeStage.Adult;
+        const timeTraveler = body.timeTraveler === "true";
 
-        const storyIdsRaw = formData.get("storyIds");
+        const storyIdsRaw = body.storyIds;
         const storyIds: number[] = storyIdsRaw ? JSON.parse(storyIdsRaw as string) : [];
-        const relationshipsRaw = formData.get("relationship");
+        const relationshipsRaw = body.relationship;
         const relationships: {
             relatedCharacterId: number;
             relationshipType: string;

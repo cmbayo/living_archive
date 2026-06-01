@@ -10,7 +10,7 @@ import AudioPlayer from "@/components/archive/AudioPlayer";
 import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
 import MocapViewer from "@/components/three/MocapViewer";
-
+import AddCharacterModal from "@/components/archive/modals/AddCharacterModal";
 
 export default function LotPage() {
   const { id } = useParams();
@@ -18,6 +18,7 @@ export default function LotPage() {
   const [lot, setLot] = useState<Lot | null>(null);
   const [media, setMedia] = useState<Media[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showAddCharacter, setShowAddCharacter] = useState(false);
 
   useEffect(() => {
     async function fetchLot() {
@@ -64,6 +65,12 @@ export default function LotPage() {
           publicSpace={lot.publicSpace}
         />
 
+        <div className="lot-actions">
+          <button className="btn-action" onClick={() => setShowAddCharacter(true)}>
+            + add character
+          </button>
+        </div>
+
         <div className="fractal-divider" />
 
         {audio.length > 0 && (
@@ -96,6 +103,13 @@ export default function LotPage() {
           </section>
         )}
       </div>
+
+      {showAddCharacter && (
+        <AddCharacterModal
+          lotId={lot.id}
+          onClose={() => setShowAddCharacter(false)}
+        />
+      )}
     </main>
   );
 }
