@@ -2,18 +2,32 @@ import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 // import { getMediaType, uploadFile } from "@/app/api/utils";
 import { AgeStage } from "@/app/generated/prisma/client"; // eventually MediaType, MediaOwner,
+import { MediaOwner } from "@/app/generated/prisma/client";
 
 export async function GET() {
-  const stories = await prisma.character.findMany({
+  const characters = await prisma.character.findMany({
     include: {
       story: true,
-    //   mediaAttachments: true,
       relationships: true,
       relatedTo: true
     },
   });
 
-  return Response.json({ data: stories });
+  // fetch media attachments for each character
+  const charactersWithMedia = await Promise.all(
+    characters.map(async character => {
+      const attachments = await prisma.mediaAttachment.findMany({
+        where: {
+          mediaOwner: MediaOwner.Character,
+          ownerId: character.id,
+        },
+        include: { media: true },
+      });
+      return { ...character, media: attachments.map(a => a.media) };
+    })
+  );
+
+  return Response.json({ data: charactersWithMedia });
 }
 
 export async function POST(request: NextRequest) {
