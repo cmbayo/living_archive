@@ -18,20 +18,6 @@ interface LotSceneProps {
 
 function LotModel({ url }: { url: string }) {
   const { scene } = useGLTF(url);
-//   return <primitive object={scene} position={[0, 0, 0]} />;
-//   useEffect(() => {
-//     // normalize structure to a standard size
-//     const box = new THREE.Box3().setFromObject(scene);
-//     const size = box.getSize(new THREE.Vector3());
-//     const maxDim = Math.max(size.x, size.y, size.z);
-//     const scale = 2 / maxDim; // normalize to 2 units
-//     scene.scale.setScalar(scale);
-    
-//     // sit on ground
-//     const newBox = new THREE.Box3().setFromObject(scene);
-//     scene.position.y = -newBox.min.y;
-//   }, [scene]);
-//   return <primitive object={scene} />;
   const box = new THREE.Box3().setFromObject(scene);
   const size = box.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x, size.y, size.z);
@@ -48,10 +34,12 @@ function CharacterModel({ url, index, total }: { url: string; index: number, tot
     if (names.length > 0) {
       actions[names[0]]?.play();
     }
-    
+
     fbx.traverse(child => {
     if ((child as THREE.Light).isLight) {
         child.visible = false;
+        // const light = child as THREE.Light;
+        // light.intensity = light.intensity * 0.1;
     }
     });
   }, [actions, names]);

@@ -5,12 +5,13 @@ import { useState } from "react";
 interface AddCharacterModalProps {
   lotId: number;
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
 const AGE_STAGES = ["Infant", "Toddler", "Child", "Teen", "Adult", "Elder"] as const;
 type AgeStage = typeof AGE_STAGES[number];
 
-export default function AddCharacterModal({ lotId, onClose }: AddCharacterModalProps) {
+export default function AddCharacterModal({ lotId, onClose, onSuccess }: AddCharacterModalProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -108,6 +109,7 @@ export default function AddCharacterModal({ lotId, onClose }: AddCharacterModalP
         return;
       }
 
+      onSuccess?.();
       onClose();
     } catch (err) {
       setError("Something went wrong");

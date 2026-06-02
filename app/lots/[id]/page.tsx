@@ -9,8 +9,9 @@ import AudioPlayer from "@/components/archive/AudioPlayer";
 import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
 import AddCharacterModal from "@/components/archive/modals/AddCharacterModal";
-import MocapViewer from "@/components/three/MocapViewer";
-import ModelViewer from "@/components/three/ModelViewer";
+import AddEventModal from "@/components/archive/modals/AddEventModal";
+// import MocapViewer from "@/components/three/MocapViewer";
+// import ModelViewer from "@/components/three/ModelViewer";
 import LotScene from "@/components/three/LotScene"; 
 
 export default function LotPage() {
@@ -20,6 +21,7 @@ export default function LotPage() {
   const [media, setMedia] = useState<Media[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddCharacter, setShowAddCharacter] = useState(false);
+  const [showAddEvent, setShowAddEvent] = useState(false);
 
   useEffect(() => {
     async function fetchLot() {
@@ -74,6 +76,9 @@ console.log("mocap urls:", mocap.map(m => m.url));
           <button className="btn-action" onClick={() => setShowAddCharacter(true)}>
             + add character
           </button>
+          <button className="btn-action" onClick={() => setShowAddEvent(true)}>
+            + add event
+          </button>
         </div>
 
         <div className="fractal-divider" />
@@ -100,20 +105,37 @@ console.log("mocap urls:", mocap.map(m => m.url));
             <PhotoGrid photos={photos} lotName={lot.name} />
           </section>
         )}
-
-        {/* {mocap.length > 0 && (
-          <section className="lot-section">
-            <div className="section-title">movement</div>
-            <MocapViewer mocapFiles={mocap} />
-          </section>
-          
-        )} */}
       </div>
 
       {showAddCharacter && (
         <AddCharacterModal
           lotId={lot.id}
           onClose={() => setShowAddCharacter(false)}
+          onSuccess={() => {
+            // refectch lot data so new event shows up
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
+        />
+      )}
+
+      {showAddEvent && (
+        <AddEventModal
+          lotId={lot.id}
+          onClose={() => setShowAddEvent(false)}
+          onSuccess={() => {
+            // refetch lot data so new event shows up
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
         />
       )}
     </main>
