@@ -30,9 +30,10 @@
 
 ## Week 4 — User submission + polish
 [ ] Add relationship to add character
-[ ] Form for users to submit structures (photo/.glb + story + audio)
+[X] Form for users to submit structures (photo/.glb + story + audio)
 [ ] AgeStage and relationship display
 [X] Deploy to Vercel, share link at Brooklyn event
 
 ## Week 5 - Polish MVP
 [ ] Atmospheric styling (your aesthetic from Tenderness in the Chaos)
+[ ] Focus on features needed for session
