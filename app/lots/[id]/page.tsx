@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 import { Lot, Media } from "@/types";
-import ModelViewer from "@/components/three/ModelViewer";
 import LotHeader from "@/components/archive/LotHeader";
 import AudioPlayer from "@/components/archive/AudioPlayer";
 import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
-import MocapViewer from "@/components/three/MocapViewer";
 import AddCharacterModal from "@/components/archive/modals/AddCharacterModal";
+import MocapViewer from "@/components/three/MocapViewer";
+import ModelViewer from "@/components/three/ModelViewer";
+import LotScene from "@/components/three/LotScene"; 
 
 export default function LotPage() {
   const { id } = useParams();
@@ -40,7 +41,8 @@ export default function LotPage() {
   const mocap = media.filter(m => m.type === "Mocap");
 
 //   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap');
-
+console.log("mocap:", mocap);
+console.log("mocap urls:", mocap.map(m => m.url));
   return (
     <main className="lot-page">
       <button
@@ -51,7 +53,10 @@ export default function LotPage() {
       </button>
 
       {model ? (
-        <ModelViewer url={model.url} />
+        // <ModelViewer url={model.url} />
+        <LotScene 
+          modelUrl={model?.url ?? null} 
+          mocapFiles={mocap.filter(m => !!m.url)} />
       ) : (
         <div className="model-placeholder">no model yet</div>
       )}
@@ -96,13 +101,13 @@ export default function LotPage() {
           </section>
         )}
 
-        {mocap.length > 0 && (
+        {/* {mocap.length > 0 && (
           <section className="lot-section">
             <div className="section-title">movement</div>
             <MocapViewer mocapFiles={mocap} />
           </section>
           
-        )}
+        )} */}
       </div>
 
       {showAddCharacter && (
