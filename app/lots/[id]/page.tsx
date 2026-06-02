@@ -10,6 +10,7 @@ import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
 import AddCharacterModal from "@/components/archive/modals/AddCharacterModal";
 import AddEventModal from "@/components/archive/modals/AddEventModal";
+import AddStoryModal from "@/components/archive/modals/AddStoryModal";
 // import MocapViewer from "@/components/three/MocapViewer";
 // import ModelViewer from "@/components/three/ModelViewer";
 import LotScene from "@/components/three/LotScene"; 
@@ -22,6 +23,7 @@ export default function LotPage() {
   const [loading, setLoading] = useState(true);
   const [showAddCharacter, setShowAddCharacter] = useState(false);
   const [showAddEvent, setShowAddEvent] = useState(false);
+  const [showAddStory, setShowAddStory] = useState(false);
 
   useEffect(() => {
     async function fetchLot() {
@@ -79,6 +81,9 @@ console.log("mocap urls:", mocap.map(m => m.url));
           <button className="btn-action" onClick={() => setShowAddEvent(true)}>
             + add event
           </button>
+          <button className="btn-action" onClick={() => setShowAddStory(true)}>
+            + add story
+          </button>
         </div>
 
         <div className="fractal-divider" />
@@ -129,6 +134,21 @@ console.log("mocap urls:", mocap.map(m => m.url));
           onClose={() => setShowAddEvent(false)}
           onSuccess={() => {
             // refetch lot data so new event shows up
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
+        />
+      )}
+
+      {showAddStory && (
+        <AddStoryModal
+          events={lot.events}
+          onClose={() => setShowAddStory(false)}
+          onSuccess={() => {
             fetch(`/api/lots/${id}`)
               .then(r => r.json())
               .then(data => {

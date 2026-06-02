@@ -543,3 +543,44 @@
 .form-select option {
   background: #0d0d20;
 }
+
+.event-select-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.event-select-item {
+  background: none;
+  border: 1px solid var(--gold-muted);
+  color: var(--cream);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-display);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-select-item:hover {
+  border-color: var(--gold);
+  background: rgba(196, 146, 42, 0.05);
+}
+
+.event-select-active {
+  border-color: var(--gold);
+  background: rgba(196, 146, 42, 0.1);
+}
+
+.event-select-name {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.event-select-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+}
