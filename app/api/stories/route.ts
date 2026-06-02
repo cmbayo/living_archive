@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
         const layer = body.layer;
         
         const eventIdsRaw = body.eventIds;
-        const eventIds: number[] = eventIdsRaw ? JSON.parse(eventIdsRaw as string) : [];
+        const eventIds: number[] = eventIdsRaw ?? [];
 
         // if the layer isn't given. 
         // find the highest layer number for stories linked to these events

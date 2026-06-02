@@ -29,8 +29,11 @@
 [X] Basic story display — layered, not linear
 
 ## Week 4 — User submission + polish
-
-[ ] Form for users to submit structures (photo/.glb + story + audio)
+[ ] Add relationship to add character
+[X] Form for users to submit structures (photo/.glb + story + audio)
 [ ] AgeStage and relationship display
-[ ] Atmospheric styling (your aesthetic from Tenderness in the Chaos)
 [X] Deploy to Vercel, share link at Brooklyn event
+
+## Week 5 - Polish MVP
+[ ] Atmospheric styling (your aesthetic from Tenderness in the Chaos)
+[ ] Focus on features needed for session

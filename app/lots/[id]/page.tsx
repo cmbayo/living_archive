@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 import { Lot, Media } from "@/types";
-import ModelViewer from "@/components/three/ModelViewer";
 import LotHeader from "@/components/archive/LotHeader";
 import AudioPlayer from "@/components/archive/AudioPlayer";
 import EventList from "@/components/archive/EventList";
 import PhotoGrid from "@/components/archive/PhotoGrid";
-import MocapViewer from "@/components/three/MocapViewer";
 import AddCharacterModal from "@/components/archive/modals/AddCharacterModal";
+import AddEventModal from "@/components/archive/modals/AddEventModal";
+import AddStoryModal from "@/components/archive/modals/AddStoryModal";
+// import MocapViewer from "@/components/three/MocapViewer";
+// import ModelViewer from "@/components/three/ModelViewer";
+import LotScene from "@/components/three/LotScene"; 
 
 export default function LotPage() {
   const { id } = useParams();
@@ -19,6 +22,8 @@ export default function LotPage() {
   const [media, setMedia] = useState<Media[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddCharacter, setShowAddCharacter] = useState(false);
+  const [showAddEvent, setShowAddEvent] = useState(false);
+  const [showAddStory, setShowAddStory] = useState(false);
 
   useEffect(() => {
     async function fetchLot() {
@@ -40,7 +45,8 @@ export default function LotPage() {
   const mocap = media.filter(m => m.type === "Mocap");
 
 //   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap');
-
+console.log("mocap:", mocap);
+console.log("mocap urls:", mocap.map(m => m.url));
   return (
     <main className="lot-page">
       <button
@@ -51,7 +57,10 @@ export default function LotPage() {
       </button>
 
       {model ? (
-        <ModelViewer url={model.url} />
+        // <ModelViewer url={model.url} />
+        <LotScene 
+          modelUrl={model?.url ?? null} 
+          mocapFiles={mocap.filter(m => !!m.url)} />
       ) : (
         <div className="model-placeholder">no model yet</div>
       )}
@@ -68,6 +77,12 @@ export default function LotPage() {
         <div className="lot-actions">
           <button className="btn-action" onClick={() => setShowAddCharacter(true)}>
             + add character
+          </button>
+          <button className="btn-action" onClick={() => setShowAddEvent(true)}>
+            + add event
+          </button>
+          <button className="btn-action" onClick={() => setShowAddStory(true)}>
+            + add story
           </button>
         </div>
 
@@ -95,19 +110,52 @@ export default function LotPage() {
             <PhotoGrid photos={photos} lotName={lot.name} />
           </section>
         )}
-
-        {mocap.length > 0 && (
-          <section className="lot-section">
-            <div className="section-title">movement</div>
-            <MocapViewer mocapFiles={mocap} />
-          </section>
-        )}
       </div>
 
       {showAddCharacter && (
         <AddCharacterModal
           lotId={lot.id}
           onClose={() => setShowAddCharacter(false)}
+          onSuccess={() => {
+            // refectch lot data so new event shows up
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
+        />
+      )}
+
+      {showAddEvent && (
+        <AddEventModal
+          lotId={lot.id}
+          onClose={() => setShowAddEvent(false)}
+          onSuccess={() => {
+            // refetch lot data so new event shows up
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
+        />
+      )}
+
+      {showAddStory && (
+        <AddStoryModal
+          events={lot.events}
+          onClose={() => setShowAddStory(false)}
+          onSuccess={() => {
+            fetch(`/api/lots/${id}`)
+              .then(r => r.json())
+              .then(data => {
+                setLot(data.data.lot);
+                setMedia(data.data.media);
+              });
+          }}
         />
       )}
     </main>
