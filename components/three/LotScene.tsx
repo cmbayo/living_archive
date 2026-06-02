@@ -1,25 +1,43 @@
 "use client";
 
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, useGLTF, useAnimations } from "@react-three/drei";
 import { useFBX } from "@react-three/drei";
+import { Media } from "@/types";
+import * as THREE from "three"
 
-interface Character {
-  id: number;
-  name: string;
-  mocapUrl: string | null;
-}
+const GROUND_Y = 0;
+const STRUCTURE_SIZE = 5;
+const CHARACTER_HEIGHT = 1.5;
 
 interface LotSceneProps {
   modelUrl: string | null;
-//   characters: Character[];
   mocapFiles: Media[];
 }
 
 function LotModel({ url }: { url: string }) {
   const { scene } = useGLTF(url);
-  return <primitive object={scene} position={[0, 0, 0]} />;
+//   return <primitive object={scene} position={[0, 0, 0]} />;
+//   useEffect(() => {
+//     // normalize structure to a standard size
+//     const box = new THREE.Box3().setFromObject(scene);
+//     const size = box.getSize(new THREE.Vector3());
+//     const maxDim = Math.max(size.x, size.y, size.z);
+//     const scale = 2 / maxDim; // normalize to 2 units
+//     scene.scale.setScalar(scale);
+    
+//     // sit on ground
+//     const newBox = new THREE.Box3().setFromObject(scene);
+//     scene.position.y = -newBox.min.y;
+//   }, [scene]);
+//   return <primitive object={scene} />;
+  const box = new THREE.Box3().setFromObject(scene);
+  const size = box.getSize(new THREE.Vector3());
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const scale = maxDim > 0 ? STRUCTURE_SIZE / maxDim : 1;
+
+  return <primitive object={scene} scale={scale} position={[0, GROUND_Y, 0]} />;
 }
 
 function CharacterModel({ url, index, total }: { url: string; index: number, total: number }) {
@@ -30,7 +48,17 @@ function CharacterModel({ url, index, total }: { url: string; index: number, tot
     if (names.length > 0) {
       actions[names[0]]?.play();
     }
+    
+    fbx.traverse(child => {
+    if ((child as THREE.Light).isLight) {
+        child.visible = false;
+    }
+    });
   }, [actions, names]);
+
+  const box = new THREE.Box3().setFromObject(fbx);
+  const size = box.getSize(new THREE.Vector3());
+  const scale = size.y > 0 ? CHARACTER_HEIGHT / size.y : 0.01;
 
   // space characters around the structure
   const angle = (index / total) * Math.PI * 2;
@@ -38,7 +66,7 @@ function CharacterModel({ url, index, total }: { url: string; index: number, tot
   const x = Math.cos(angle) * radius;
   const z = Math.sin(angle) * radius;
 
-  return <primitive object={fbx} scale={.1} position={[x, 0, z]} />;
+  return <primitive object={fbx} scale={scale} position={[x, GROUND_Y, z]} />;
 }
 
 function LoadingFallback() {
@@ -59,13 +87,12 @@ export default function LotScene({ modelUrl, mocapFiles }: LotSceneProps) {
     );
   }
 
-//   const activeCharacters = characters.filter(c => c.mocapUrl !== null);
-
   return (
     <div className="model-viewer">
       <Canvas camera={{ position: [0, 3, 8], fov: 45 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
+
         <Suspense fallback={<LoadingFallback />}>
           {modelUrl && <LotModel url={modelUrl} />}
           {mocapFiles
