@@ -117,13 +117,14 @@ console.log("mocap urls:", mocap.map(m => m.url));
           lotId={lot.id}
           onClose={() => setShowAddCharacter(false)}
           onSuccess={() => {
-            // refectch lot data so new event shows up
+            // refectch lot data so new character shows up
             fetch(`/api/lots/${id}`)
               .then(r => r.json())
               .then(data => {
                 setLot(data.data.lot);
                 setMedia(data.data.media);
               });
+            router.refresh(); // reload so the scale works
           }}
         />
       )}

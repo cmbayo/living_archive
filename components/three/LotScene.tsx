@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, useGLTF, useAnimations } from "@react-three/drei";
 import { useFBX } from "@react-three/drei";
@@ -23,7 +23,6 @@ function getCharacterPosition(
   existingPositions: [number, number][]
 ): [number, number, number] {
   const BASE_RADIUS = STRUCTURE_SIZE + CHARACTER_WIDTH;
-  // const BASE_RADIUS = 4;
   const angle = (index / total) * Math.PI * 2;
 
   let radius = BASE_RADIUS;
@@ -61,6 +60,7 @@ function LotModel({ url }: { url: string }) {
 
 function CharacterModel({ url, position }: { url: string; position: [number,number, number]}) {
   const fbx = useFBX(url);
+  // const clone = useMemo(() => fbx.clone(), [fbx]);
   const { actions, names } = useAnimations(fbx.animations, fbx);
 
   useEffect(() => {
@@ -79,14 +79,9 @@ function CharacterModel({ url, position }: { url: string; position: [number,numb
 
   const box = new THREE.Box3().setFromObject(fbx);
   const size = box.getSize(new THREE.Vector3());
+  console.log("character size:", size);
+  console.log("character scale:", CHARACTER_HEIGHT / size.y);
   const scale = size.y > 0 ? CHARACTER_HEIGHT / size.y : 0.01;
-
-  // space characters around the structure
-  // const angle = (index / total) * Math.PI * 2;
-  // const radius = 2;
-  // const x = Math.cos(angle) * radius;
-  // const z = Math.sin(angle) * radius;
-  // const position = getCharacterPosition(index, total, );
 
   return <primitive object={fbx} scale={scale} position={position} />;
 }
