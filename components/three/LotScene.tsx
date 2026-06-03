@@ -10,10 +10,43 @@ import * as THREE from "three"
 const GROUND_Y = 0;
 const STRUCTURE_SIZE = 5;
 const CHARACTER_HEIGHT = 1.5;
+const CHARACTER_WIDTH = CHARACTER_HEIGHT * 0.3; // rough approximation
 
 interface LotSceneProps {
   modelUrl: string | null;
   mocapFiles: Media[];
+}
+
+function getCharacterPosition(
+  index: number,
+  total: number,
+  existingPositions: [number, number][]
+): [number, number, number] {
+  const BASE_RADIUS = STRUCTURE_SIZE + CHARACTER_WIDTH;
+  // const BASE_RADIUS = 4;
+  const angle = (index / total) * Math.PI * 2;
+
+  let radius = BASE_RADIUS;
+  let x = Math.cos(angle) * radius;
+  let z = Math.sin(angle) * radius;
+
+  const MIN_DISTANCE = CHARACTER_WIDTH;
+  let attempts = 0;
+
+  while (attempts < 10) {
+    const overlapping = existingPositions.some(([ex, ez]) => {
+      const dist = Math.sqrt((x - ex) ** 2 + (z - ez) ** 2);
+      return dist < MIN_DISTANCE;
+    });
+
+    if (!overlapping) break;
+    radius += CHARACTER_HEIGHT * 0.5;
+    x = Math.cos(angle) * radius;
+    z = Math.sin(angle) * radius;
+    attempts++;
+  }
+
+  return [x, GROUND_Y, z];
 }
 
 function LotModel({ url }: { url: string }) {
@@ -26,7 +59,7 @@ function LotModel({ url }: { url: string }) {
   return <primitive object={scene} scale={scale} position={[0, GROUND_Y, 0]} />;
 }
 
-function CharacterModel({ url, index, total }: { url: string; index: number, total: number }) {
+function CharacterModel({ url, position }: { url: string; position: [number,number, number]}) {
   const fbx = useFBX(url);
   const { actions, names } = useAnimations(fbx.animations, fbx);
 
@@ -49,12 +82,13 @@ function CharacterModel({ url, index, total }: { url: string; index: number, tot
   const scale = size.y > 0 ? CHARACTER_HEIGHT / size.y : 0.01;
 
   // space characters around the structure
-  const angle = (index / total) * Math.PI * 2;
-  const radius = 2;
-  const x = Math.cos(angle) * radius;
-  const z = Math.sin(angle) * radius;
+  // const angle = (index / total) * Math.PI * 2;
+  // const radius = 2;
+  // const x = Math.cos(angle) * radius;
+  // const z = Math.sin(angle) * radius;
+  // const position = getCharacterPosition(index, total, );
 
-  return <primitive object={fbx} scale={scale} position={[x, GROUND_Y, z]} />;
+  return <primitive object={fbx} scale={scale} position={position} />;
 }
 
 function LoadingFallback() {
@@ -75,6 +109,9 @@ export default function LotScene({ modelUrl, mocapFiles }: LotSceneProps) {
     );
   }
 
+  const activeFiles = mocapFiles.filter(file => file.url && file.url.length > 0);
+  const placedPositions: [number, number][] = [];
+
   return (
     <div className="model-viewer">
       <Canvas camera={{ position: [0, 3, 8], fov: 45 }}>
@@ -83,16 +120,17 @@ export default function LotScene({ modelUrl, mocapFiles }: LotSceneProps) {
 
         <Suspense fallback={<LoadingFallback />}>
           {modelUrl && <LotModel url={modelUrl} />}
-          {mocapFiles
-            .filter(file => file.url && file.url.length > 0)
-            .map((file, i) => (
-            <CharacterModel
-                key={file.id}
-                url={file.url}
-                index={i}
-                total={mocapFiles.length}
-              />
-          ))}
+          {activeFiles.map((file, i) => { 
+              const [x, y, z] = getCharacterPosition(i, activeFiles.length, placedPositions);
+              placedPositions.push([x,z]);
+              return (
+                <CharacterModel
+                    key={file.id}
+                    url={file.url}
+                    position={[x,y,z]}
+                  />
+              );
+          })}
           <Environment preset="night" />
         </Suspense>
         <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
