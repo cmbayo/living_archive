@@ -9,7 +9,7 @@ export default function EventList({ events }: EventListProps) {
 
   return (
     <div className="event-list">
-      {events.map(event => (
+      {events.sort((a,b) => a.datetime > b.datetime ? 1 : -1).map(event => (
         <div key={event.id} className="event">
           <div className="event-header">
             <h3 className="event-name">{event.name}</h3>
