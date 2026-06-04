@@ -646,3 +646,11 @@
   fill: rgba(196, 146, 42, 0.15);
   stroke: var(--gold);
 }
+.story-events {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gold-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

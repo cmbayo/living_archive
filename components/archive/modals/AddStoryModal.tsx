@@ -81,7 +81,7 @@ export default function AddStoryModal({ events, onClose, onSuccess }: AddStoryMo
           <div className="form-field">
             <label className="form-label">which events does this story touch? *</label>
             <div className="event-select-list">
-              {events.map(event => (
+              {events.sort((a, b) => a.datetime > b.datetime ? 1 : -1).map(event => (
                 <button
                   key={event.id}
                   className={`event-select-item ${selectedEventIds.includes(event.id) ? "event-select-active" : ""}`}
