@@ -1,10 +1,5 @@
-import { describe, it, expect, vi } from "vitest";
-
-vi.mock("@/lib/supabase", () => ({
-  supabaseAdmin: { storage: { from: vi.fn() } },
-}));
-
-import { getMediaType } from "@/app/api/utils";
+import { describe, it, expect } from "vitest";
+import { getMediaType } from "@/lib/media";
 import { MediaType } from "@/app/generated/prisma/client";
 
 function mockFile(name: string, type = ""): File {

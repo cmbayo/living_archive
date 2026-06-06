@@ -121,7 +121,7 @@ living_archive/
 ├── components/
 │   ├── archive/          # Hex grid, modals, audio, events
 │   └── three/            # React Three Fiber scenes
-├── lib/                  # Prisma + Supabase clients
+├── lib/                  # Prisma, Supabase, media helpers
 ├── prisma/schema.prisma
 ├── docs/                 # Architecture, decisions, study notes
 └── __tests__/            # Vitest unit tests
