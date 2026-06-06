@@ -48,20 +48,22 @@ export async function GET(
       ),
     ];
     // 2. From the character Id get the mocap data
-    const mocap = await prisma.mediaAttachment.findMany({
-      where: {
-        mediaOwner: MediaOwner.Character,
-        ownerId: {
-          in: characterIds,
-        },
-        media: {
-          type: MediaType.Mocap,
-        },
-      },
-      include: {
-        media: true,
-      },
-    });
+    const mocap = characterIds.length > 0
+      ? await prisma.mediaAttachment.findMany({
+          where: {
+            mediaOwner: MediaOwner.Character,
+            ownerId: {
+              in: characterIds,
+            },
+            media: {
+              type: MediaType.Mocap,
+            },
+          },
+          include: {
+            media: true,
+          },
+        })
+      : [];
     // 3. appened it to media? 
     const media = [
       ...attachments.map(a => a.media),

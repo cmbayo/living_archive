@@ -1,99 +1,163 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Integration smoke test — hits a running server with real DB + storage.
+#
+# Usage:
+#   MODEL_FILE=/path/to/model.glb npm run test:integration
+#   BASE_URL=https://your-app.vercel.app MODEL_FILE=... npm run test:integration
+#
+# Requires: curl, python3 (for pretty-printing GET responses)
 
-# curl -X POST http://localhost:3000/api/media -F "file=@/Users/new2/Documents/media/music/Mbongwana Star - From Kinshasa to the Moon.mp3" -F "type=Audio"
-# BASE_URL="https://living-archive-cew0p5y00-clearmoon-projects.vercel.app"
-BASE_URL="http://localhost:3000"
+set -euo pipefail
 
-# curl -s -X POST http://localhost:3000/api/neighborhoods -F "name=Neighborhood A"
-# curl -s -x POST http://localhost:3000/api/neighborhoods \ 
-#     -H "Content-Type: application/json" \
-#     -d '{"name": "Neighborhood A"}'
-echo "🌍 Creating neighborhood..."
-NEIGHBORHOOD=$(curl -s -X POST $BASE_URL/api/neighborhoods \
-  -F "name=Neighborhood D")
-echo $NEIGHBORHOOD
-NEIGHBORHOOD_ID=$(echo $NEIGHBORHOOD | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Neighborhood ID: $NEIGHBORHOOD_ID"
+BASE_URL="${BASE_URL:-http://localhost:3000}"
+MODEL_FILE="${MODEL_FILE:-}"
+TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT
 
+if [[ -z "$MODEL_FILE" || ! -f "$MODEL_FILE" ]]; then
+  echo "❌ MODEL_FILE must point to a .glb file on your machine."
+  echo "   Example: MODEL_FILE=/path/to/model.glb npm run test:integration"
+  exit 1
+fi
+
+extract_id() {
+  echo "$1" | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*'
+}
+
+# curl helper: writes body to $TMP_DIR/last.json, returns HTTP status
+curl_request() {
+  local method="$1"
+  shift
+  curl -sS -o "$TMP_DIR/last.json" -w "%{http_code}" -X "$method" "$@"
+}
+
+assert_status() {
+  local label="$1"
+  local expected="$2"
+  local actual="$3"
+
+  if [[ "$actual" != "$expected" ]]; then
+    echo "❌ $label — expected HTTP $expected, got $actual"
+    cat "$TMP_DIR/last.json"
+    echo ""
+    exit 1
+  fi
+
+  echo "✅ $label (HTTP $actual)"
+  cat "$TMP_DIR/last.json"
+}
+
+post_form() {
+  local label="$1"
+  local expected="$2"
+  shift 2
+  local status
+  status="$(curl_request POST "$BASE_URL$1" "$@")"
+  assert_status "$label" "$expected" "$status"
+}
+
+post_json() {
+  local label="$1"
+  local expected="$2"
+  local path="$3"
+  local json="$4"
+  local status
+  status="$(curl_request POST "$BASE_URL$path" \
+    -H "Content-Type: application/json" \
+    -d "$json")"
+  assert_status "$label" "$expected" "$status"
+}
+
+get_json() {
+  local label="$1"
+  local path="$2"
+  local status
+  status="$(curl_request GET "$BASE_URL$path")"
+  assert_status "$label" "200" "$status"
+  python3 -m json.tool "$TMP_DIR/last.json"
+}
+
+echo "🔗 BASE_URL=$BASE_URL"
+echo "📦 MODEL_FILE=$MODEL_FILE"
 echo ""
+
+echo "🌍 Creating neighborhood..."
+post_form "POST /api/neighborhoods" "201" "/api/neighborhoods" \
+  -F "name=Neighborhood D"
+NEIGHBORHOOD_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Neighborhood ID: $NEIGHBORHOOD_ID"
+echo ""
+
 echo "🏗️ Creating lot..."
-LOT=$(curl -s -X POST $BASE_URL/api/lots \
+post_form "POST /api/lots" "201" "/api/lots" \
   -F "name=Structure A" \
   -F "architectDesigner=Cam" \
   -F "publicSpace=true" \
   -F "neighborhoodId=$NEIGHBORHOOD_ID" \
-  -F "model=@/Users/new2/Documents/project/animation/living_archive/Shipping_Container/Shipping_Container.glb")
-echo $LOT
-LOT_ID=$(echo $LOT | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Lot ID: $LOT_ID"
-
+  -F "model=@$MODEL_FILE"
+LOT_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Lot ID: $LOT_ID"
 echo ""
+
 echo "👤 Creating characters..."
-CHARACTER=$(curl -s -X POST $BASE_URL/api/characters \
-  -F "name=Amara" \
-  -F "backstory=Elder of the village" \
-  -F "timeTraveler=false")
-echo $CHARACTER
-CHARACTER_ID=$(echo $CHARACTER | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Character ID: $CHARACTER_ID"
+post_json "POST /api/characters (Amara)" "201" "/api/characters" \
+  '{"name":"Amara","backstory":"Elder of the village","timeTraveler":false}'
+CHARACTER_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Character ID: $CHARACTER_ID"
 
-# create a second character for the relationship test
-CHARACTER2=$(curl -s -X POST $BASE_URL/api/characters \
-  -F "name=Kofi" \
-  -F "backstory=Young builder" \
-  -F "timeTraveler=true")
-CHARACTER2_ID=$(echo $CHARACTER2 | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Character 2 ID: $CHARACTER2_ID"
-
+post_json "POST /api/characters (Kofi)" "201" "/api/characters" \
+  '{"name":"Kofi","backstory":"Young builder","timeTraveler":true}'
+CHARACTER2_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Character 2 ID: $CHARACTER2_ID"
 echo ""
+
 echo "📅 Creating event..."
-EVENT=$(curl -s -X POST $BASE_URL/api/events \
-  -H "Content-Type: application/json" \
-  -d "{\"name\": \"Gaia speaks\", \"datetime\": \"2026-05-18T00:00:00Z\", \"description\": \"The day the structure was named\", \"major\": true, \"lotId\": $LOT_ID, \"characterId\": $CHARACTER_ID}")
-echo $EVENT
-EVENT_ID=$(echo $EVENT | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Event ID: $EVENT_ID"
-
+post_json "POST /api/events" "201" "/api/events" \
+  "{\"name\":\"Gaia speaks\",\"datetime\":\"2026-05-18T00:00:00Z\",\"description\":\"The day the structure was named\",\"major\":true,\"lotId\":$LOT_ID,\"characterId\":$CHARACTER_ID}"
+EVENT_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Event ID: $EVENT_ID"
 echo ""
+
 echo "📖 Creating story..."
-STORY=$(curl -s -X POST $BASE_URL/api/stories \
-  -H "Content-Type: application/json" \
-  -d "{\"content\": \"This is the story of how the structure came to be\", \"eventIds\": [$EVENT_ID]}")
-echo $STORY
-STORY_ID=$(echo $STORY | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
-echo "Story ID: $STORY_ID"
-
+post_json "POST /api/stories" "201" "/api/stories" \
+  "{\"content\":\"This is the story of how the structure came to be\",\"eventIds\":[$EVENT_ID]}"
+STORY_ID="$(extract_id "$(cat "$TMP_DIR/last.json")")"
+echo "   Story ID: $STORY_ID"
 echo ""
+
 echo "🤝 Creating relationship..."
-RELATIONSHIP=$(curl -s -X POST $BASE_URL/api/relationships \
-  -H "Content-Type: application/json" \
-  -d "{\"characterId\": $CHARACTER_ID, \"relatedToId\": $CHARACTER2_ID, \"type\": \"friend\", \"strength\": 80}")
-echo $RELATIONSHIP
-
+post_json "POST /api/relationships" "201" "/api/relationships" \
+  "{\"characterId\":$CHARACTER_ID,\"relatedToId\":$CHARACTER2_ID,\"type\":\"friend\",\"strength\":80}"
 echo ""
-echo "✅ Done Testing POST"
 
+echo "── GET smoke tests ──"
 echo ""
-echo "🌍 Testing GET neighborhoods..."
-curl -s -X GET $BASE_URL/api/neighborhoods | python3 -m json.tool
+echo "🌍 GET /api/neighborhoods"
+get_json "GET /api/neighborhoods" "/api/neighborhoods"
+echo ""
 
+echo "🏗️ GET /api/lots"
+get_json "GET /api/lots" "/api/lots"
 echo ""
-echo "🏗️ Testing GET lots..."
-curl -s -X GET $BASE_URL/api/lots | python3 -m json.tool
 
+echo "🏗️ GET /api/lots/$LOT_ID"
+get_json "GET /api/lots/[id]" "/api/lots/$LOT_ID"
 echo ""
-echo "👤 Testing GET characters..."
-curl -s -X GET $BASE_URL/api/characters | python3 -m json.tool
 
+echo "👤 GET /api/characters"
+get_json "GET /api/characters" "/api/characters"
 echo ""
-echo "📅 Testing GET events..."
-curl -s -X GET $BASE_URL/api/events | python3 -m json.tool
 
+echo "📅 GET /api/events"
+get_json "GET /api/events" "/api/events"
 echo ""
-echo "📖 Testing GET stories..."
-curl -s -X GET $BASE_URL/api/stories | python3 -m json.tool
 
+echo "📖 GET /api/stories"
+get_json "GET /api/stories" "/api/stories"
 echo ""
-echo "🤝 Testing GET relationships..."
-curl -s -X GET $BASE_URL/api/relationships | python3 -m json.tool
-echo "✅ Done Testing GET"
+
+echo "🤝 GET /api/relationships"
+get_json "GET /api/relationships" "/api/relationships"
+echo ""
+
+echo "✅ Integration smoke test passed"

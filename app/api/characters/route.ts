@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
         const name = body.name as string;
         const backstory = body.backstory as string || null;
         const currentAge = body.currentAge as AgeStage || AgeStage.Adult;
-        const timeTraveler = body.timeTraveler === "true";
+        const timeTraveler = body.timeTraveler === true || body.timeTraveler === "true";
 
         const storyIdsRaw = body.storyIds;
         const storyIds: number[] = storyIdsRaw ? JSON.parse(storyIdsRaw as string) : [];

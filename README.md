@@ -131,14 +131,28 @@ living_archive/
 
 ## Testing
 
-Tests use [Vitest](https://vitest.dev). Start with pure logic (hex grid math, media type detection), then add API route tests with mocked dependencies.
+Two layers:
+
+**Unit tests (Vitest)** — fast, mocked, no server required:
 
 ```bash
 npm test              # run once
 npm run test:watch    # watch mode
 ```
 
-See [`__tests__/`](__tests__/) for examples. More detail in the walkthrough below.
+**Integration smoke test** — hits a running server with real DB + storage:
+
+```bash
+# terminal 1
+npm run dev
+
+# terminal 2
+MODEL_FILE=/path/to/your/model.glb npm run test:integration
+```
+
+Optional env vars: `BASE_URL` (defaults to `http://localhost:3000`).
+
+See [`__tests__/`](__tests__/) and [`docs/test.sh`](docs/test.sh).
 
 ---
 
