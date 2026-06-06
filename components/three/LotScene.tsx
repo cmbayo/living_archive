@@ -79,8 +79,6 @@ function CharacterModel({ url, position }: { url: string; position: [number,numb
 
   const box = new THREE.Box3().setFromObject(fbx);
   const size = box.getSize(new THREE.Vector3());
-  console.log("character size:", size);
-  console.log("character scale:", CHARACTER_HEIGHT / size.y);
   const scale = size.y > 0 ? CHARACTER_HEIGHT / size.y : 0.01;
 
   return <primitive object={fbx} scale={scale} position={position} />;

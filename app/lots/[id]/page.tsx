@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Suspense } from "react";
 import { Lot, Media } from "@/types";
 import LotHeader from "@/components/archive/LotHeader";
 import AudioPlayer from "@/components/archive/AudioPlayer";
@@ -44,9 +43,6 @@ export default function LotPage() {
   const photos = media.filter(m => m.type === "Photo");
   const mocap = media.filter(m => m.type === "Mocap");
 
-//   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap');
-console.log("mocap:", mocap);
-console.log("mocap urls:", mocap.map(m => m.url));
   return (
     <main className="lot-page">
       <button

@@ -21,8 +21,6 @@ export async function uploadFile(file: File): Promise<string> {
 
   const contentType = contentTypeMap[fileExt ?? ""] ?? file.type ?? "application/octet-stream";
 
-  console.log("contentType:", contentType);
-
   const { data, error } = await supabaseAdmin.storage
     .from("archive-media")
     .upload(fileName, buffer, {

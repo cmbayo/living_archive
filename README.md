@@ -1,16 +1,20 @@
-<!-- # Crafting Our Legacy: A Living Archive -->
+# Crafting Our Legacy: A Living Archive
 
 An interactive community archive inspired by the fractal urban design of medieval Benin City. Students and collaborators contribute stories, audio, photos, and 3D scans of physical structures — then explore them on a hex-based world map with in-browser 3D playback.
+
+**Status:** Active development — core flows work; auth and polish in progress.
 
 **Live demo:** _Add your Vercel URL here_
 
 ---
-a
+
 ## Why this project exists
 
 Traditional archives preserve artifacts. This one preserves **process** — how a community imagines, builds, and retells its own history. Each "lot" holds layered stories, events, and media tied to characters who inhabit the space. The hex grid mirrors the fractal, repeating patterns of Benin City's layout: neighborhoods expand organically, and the city can be reshaped as new contributions arrive.
 
 Built for community workshops (Brooklyn, NYSCA-funded programming) and designed to scale from 5–20 initial participants to a growing public archive.
+
+My first Next.js project — shipped in ~4 weeks while learning the App Router, Prisma, Supabase, and React Three Fiber in parallel.
 
 ---
 
@@ -162,7 +166,7 @@ See [`__tests__/`](__tests__/) and [`docs/test.sh`](docs/test.sh).
 - [ ] Relationship graph visualization for characters
 - [ ] Real-time story updates (originally planned with Firestore)
 - [ ] Age-stage progression UI
-- [ ] Expanded test coverage for API routes
+- [x] Unit test coverage for API routes and core utilities
 
 ---
 
