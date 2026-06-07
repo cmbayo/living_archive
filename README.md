@@ -90,7 +90,7 @@ Full schema: [`prisma/schema.prisma`](prisma/schema.prisma)
 DATABASE_URL="postgresql://..."
 NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="your-anon-key"
-NEXT_PUBLIC_SUPABASE_SERVICE_KEY="your-service-role-key"
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
 ```
 
 ### Install and run
@@ -153,6 +153,7 @@ npm run dev
 # terminal 2
 MODEL_FILE=/path/to/your/model.glb npm run test:integration
 ```
+TODO: add `BASE_URL`
 
 Optional env vars: `BASE_URL` (defaults to `http://localhost:3000`).
 
