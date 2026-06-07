@@ -584,3 +584,73 @@
   font-size: 0.65rem;
   color: var(--gold);
 }
+
+.world-map {
+  min-height: 100vh;
+  padding: 4rem 6rem;
+}
+
+.world-header {
+  margin-bottom: 4rem;
+}
+
+.world-title {
+  font-size: 4rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.world-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.world-svg-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.world-svg {
+  min-width: 600px;
+}
+
+.hex-lot polygon,
+.hex-empty polygon {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.hex-lot:hover polygon {
+  fill: rgba(196, 146, 42, 0.15);
+  stroke: var(--gold);
+}
+
+.neighborhood-cluster rect {
+  transition: fill 0.3s ease;
+}
+
+.neighborhood-cluster:hover rect {
+  fill: rgba(196, 146, 42, 0.06);
+}
+
+.neighborhood-group .hex-lot polygon {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.neighborhood-group:hover .hex-lot polygon {
+  fill: rgba(196, 146, 42, 0.15);
+  stroke: var(--gold);
+}
+.story-events {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gold-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

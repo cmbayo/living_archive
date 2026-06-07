@@ -1,36 +1,176 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crafting Our Legacy: A Living Archive - WIP
 
-## Getting Started
+An interactive community archive inspired by the fractal urban design of medieval Benin City. Students and collaborators contribute stories, audio, photos, and 3D scans of physical structures — then explore them on a hex-based world map with in-browser 3D playback.
 
-First, run the development server:
+**Status:** Active development — core flows work; auth and polish in progress.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Live demo:** TODO: vercel url
+_
+
+---
+
+## Why this project exists
+
+Traditional archives preserve artifacts. This one preserves **process** — how a community imagines, builds, and retells its own history. Each "lot" holds layered stories, events, and media tied to characters who inhabit the space. The hex grid mirrors the fractal, repeating patterns of Benin City's layout: neighborhoods expand organically, and the city can be reshaped as new contributions arrive.
+
+Built for community workshops (Brooklyn, NYSCA-funded programming) and designed to scale from 5–20 initial participants to a growing public archive.
+
+My first Next.js project — shipped in ~4 weeks while learning the App Router, Prisma, Supabase, and React Three Fiber in parallel.
+
+---
+
+## Features
+
+- **World map** — SVG hex grid of neighborhoods and lots, click-through navigation
+- **Lot pages** — 3D structure viewer (`.glb`), mocap character playback (`.fbx`/`.bvh`), audio stories, photo grids, event timelines
+- **Community submission** — modals to add characters, events, and layered stories
+- **Rich media pipeline** — upload audio, photos, 3D models, and mocap files to Supabase Storage; metadata in PostgreSQL via Prisma
+- **Relational data model** — characters with age stages and relationships, many-to-many story ↔ event links, polymorphic media attachments
+
+---
+
+## Tech stack
+
+| Layer | Tool |
+|---|---|
+| Frontend | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 |
+| 3D | React Three Fiber, Three.js, `@react-three/drei` |
+| API | Next.js Route Handlers (hand-written REST) |
+| ORM | Prisma 7 with `@prisma/adapter-pg` |
+| Database | PostgreSQL (Supabase) |
+| File storage | Supabase Storage (`archive-media` bucket) |
+| Hosting | Vercel |
+
+---
+
+## Architecture
+
+```
+Browser (React + R3F)
+        ↓
+Next.js API Routes  (/api/lots, /characters, /events, /stories, /media, …)
+        ↓
+Prisma ORM
+        ↓
+Supabase PostgreSQL          Supabase Storage
+(relational metadata)        (.glb, .bvh, .mp3, .jpg)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Key design decisions:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **PostgreSQL over Firestore** — the domain has clear relationships (neighborhoods → lots → events → stories); a relational schema maps naturally
+- **Polymorphic media attachments** — one `MediaAttachment` table links files to lots, neighborhoods, stories, or characters via `mediaOwner` + `ownerId`
+- **Hand-written API routes** — Supabase auto-REST is disabled; all business logic lives in Next.js handlers
+- **Direct browser uploads** — files go to Supabase Storage; only URLs are stored in the database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [`docs/architecture.md`](docs/architecture.md) and [`docs/study_sheet.md`](docs/study_sheet.md) for deeper technical notes.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Data model (summary)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+Neighborhood → Lot → Event → Story (many-to-many via StoryEvent)
+Character → Relationship (self-referential)
+Media → MediaAttachment (polymorphic: Lot | Neighborhood | Story | Character)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Full schema: [`prisma/schema.prisma`](prisma/schema.prisma)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Getting started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Prerequisites
+
+- Node.js 20+
+- A Supabase project with PostgreSQL and a Storage bucket named `archive-media`
+- Environment variables (create `.env` in the project root):
+
+```bash
+DATABASE_URL="postgresql://..."
+NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="your-anon-key"
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
+```
+
+### Install and run
+
+```bash
+npm install
+npx prisma generate
+npx prisma db push          # sync schema to your database (dev)
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+### Production build
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## Project structure
+
+```
+living_archive/
+├── app/
+│   ├── api/              # REST route handlers
+│   ├── lots/[id]/        # Lot detail page (3D + media)
+│   ├── neighborhoods/[id]/ # Neighborhood hex grid
+│   └── page.tsx          # World map
+├── components/
+│   ├── archive/          # Hex grid, modals, audio, events
+│   └── three/            # React Three Fiber scenes
+├── lib/                  # Prisma, Supabase, media helpers
+├── prisma/schema.prisma
+├── docs/                 # Architecture, decisions, study notes
+└── __tests__/            # Vitest unit tests
+```
+
+---
+
+## Testing
+
+Two layers:
+
+**Unit tests (Vitest)** — fast, mocked, no server required:
+
+```bash
+npm test              # run once
+npm run test:watch    # watch mode
+```
+
+**Integration smoke test** — hits a running server with real DB + storage:
+
+```bash
+# terminal 1
+npm run dev
+
+# terminal 2
+MODEL_FILE=/path/to/your/model.glb npm run test:integration
+```
+
+Optional env vars: `BASE_URL` (defaults to `http://localhost:3000`).
+
+See [`__tests__/`](__tests__/) and [`docs/test.sh`](docs/test.sh).
+
+---
+
+## Roadmap
+
+- [ ] Auth and row-level write permissions
+- [ ] Relationship graph visualization for characters
+- [ ] Real-time story updates (originally planned with Firestore)
+- [ ] Age-stage progression UI
+- [x] Unit test coverage for API routes and core utilities
+
+---
+
+## License
+
+Private / grant-funded community project. Update this section if you open-source it.

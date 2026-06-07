@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { uploadFile, getMediaType } from "@/app/api/utils";
+import { getMediaType } from "@/lib/media";
+import { uploadFile } from "@/app/api/utils";
 import { MediaType, MediaOwner } from "@/app/generated/prisma/client";
 
 export async function GET() {
