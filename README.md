@@ -4,7 +4,7 @@ An interactive community archive inspired by the fractal urban design of medieva
 
 **Status:** Active development — core flows work; auth and polish in progress.
 
-**Live demo:** TODO: vercel url
+**Live demo:** [vercel url](https://living-archive-swart.vercel.app/)
 _
 
 ---
