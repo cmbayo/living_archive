@@ -1,10 +1,11 @@
-# Crafting Our Legacy: A Living Archive
+# Crafting Our Legacy: A Living Archive - WIP
 
 An interactive community archive inspired by the fractal urban design of medieval Benin City. Students and collaborators contribute stories, audio, photos, and 3D scans of physical structures — then explore them on a hex-based world map with in-browser 3D playback.
 
 **Status:** Active development — core flows work; auth and polish in progress.
 
-**Live demo:** _Add your Vercel URL here_
+**Live demo:** TODO: vercel url
+_
 
 ---
 
@@ -153,7 +154,6 @@ npm run dev
 # terminal 2
 MODEL_FILE=/path/to/your/model.glb npm run test:integration
 ```
-TODO: add `BASE_URL`
 
 Optional env vars: `BASE_URL` (defaults to `http://localhost:3000`).
 
