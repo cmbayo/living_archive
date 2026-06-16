@@ -1,5 +1,5 @@
 "use client";
-
+import { useWebGLSupport } from '@/lib/hooks/useWebGLSupport';
 import { Suspense, useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, useGLTF, useAnimations } from "@react-three/drei";
@@ -93,6 +93,25 @@ function LoadingFallback() {
   );
 }
 
+function WebGLFallback() {
+  return (
+    <div className="model-viewer" style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      gap: '0.5rem',
+      color: '#c4922a',
+      fontSize: '20px',
+      textAlign: 'center',
+      padding: '1rem',
+    }}>      
+    <p>3D viewer requires WebGL. Try Firefox or enable 
+         hardware acceleration in Chrome settings.</p>
+    </div>
+  );
+}
+
 export default function LotScene({ modelUrl, mocapFiles }: LotSceneProps) {
   const hasContent = modelUrl || mocapFiles.length > 0;
 
@@ -105,6 +124,15 @@ export default function LotScene({ modelUrl, mocapFiles }: LotSceneProps) {
   const activeFiles = mocapFiles.filter(file => file.url && file.url.length > 0);
   const placedPositions: [number, number][] = [];
 
+  const webGLSupported = useWebGLSupport();
+
+  if (webGLSupported === null) {
+    return null;
+  }
+
+  if (webGLSupported === false) {
+    return <WebGLFallback />;
+  } 
   return (
     <div className="model-viewer">
       <Canvas camera={{ position: [0, 3, 8], fov: 45 }}>
