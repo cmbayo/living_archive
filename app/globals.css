@@ -405,6 +405,103 @@
   letter-spacing: 0.05em;
 }
 
+.curriculum-content-wide {
+  max-width: 720px;
+}
+
+.curriculum-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.curriculum-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.curriculum-module-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  text-align: left;
+  background: rgba(196, 146, 42, 0.03);
+  border: 1px solid var(--gold-muted);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.curriculum-module-card:hover {
+  border-color: var(--gold);
+  background: rgba(196, 146, 42, 0.08);
+}
+
+.curriculum-module-locked {
+  opacity: 0.65;
+}
+
+.curriculum-module-locked:hover {
+  opacity: 0.85;
+}
+
+.curriculum-module-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.curriculum-module-title {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--cream);
+}
+
+.curriculum-module-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.05em;
+}
+
+.curriculum-module-lock {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--coral);
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+.curriculum-outline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.curriculum-outline-item {
+  padding-left: 1rem;
+  border-left: 1px solid var(--gold-muted);
+}
+
+.curriculum-outline-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
 .neighborhood-page {
   min-height: 100vh;
   padding: 6rem;
@@ -729,6 +826,35 @@
 
 .world-header {
   margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.world-nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.world-nav-btn {
+  background: none;
+  border: 1px solid var(--gold-muted);
+  color: var(--cream-muted);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.world-nav-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
 .world-title {

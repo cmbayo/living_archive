@@ -4,9 +4,13 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { hexPoints, getHexPosition, getGridDimensions } from "@/components/archive/HexUtils";
 import WorldLanding from "@/components/archive/WorldLanding";
+import CurriculumView from "@/components/archive/CurriculumView";
+import LearnMoreView from "@/components/archive/LearnMoreView";
 
 interface Lot { id: number; name: string; architectDesigner: string | null; publicSpace: boolean; }
 interface Neighborhood { id: number; name: string; lots: Lot[]; }
+
+type WorldOverlay = "none" | "curriculum" | "learn";
 
 const HEX_SIZE = 40;
 const CLUSTER_GAP = 0;
@@ -22,6 +26,7 @@ export default function WorldMap() {
   const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
   const [loading, setLoading] = useState(true);
   const [entered, setEntered] = useState(hasEnteredWorld);
+  const [overlay, setOverlay] = useState<WorldOverlay>("none");
 
   useEffect(() => {
     fetch("/api/neighborhoods")
@@ -91,11 +96,29 @@ export default function WorldMap() {
   );
   const totalHeight = lastOffset.y + lastHeight + HEX_SIZE * 3;
 
+  if (overlay === "curriculum") {
+    return <CurriculumView onBack={() => setOverlay("none")} />;
+  }
+
+  if (overlay === "learn") {
+    return <LearnMoreView onBack={() => setOverlay("none")} />;
+  }
+
   return (
     <main className="world-map">
       <div className="world-header">
-        <h1 className="world-title">Crafting Our Legacy</h1>
-        <p className="world-subtitle">A Living Archive</p>
+        <div>
+          <h1 className="world-title">Crafting Our Legacy</h1>
+          <p className="world-subtitle">A Living Archive</p>
+        </div>
+        <nav className="world-nav">
+          <button className="world-nav-btn" onClick={() => setOverlay("curriculum")}>
+            Curriculum
+          </button>
+          <button className="world-nav-btn" onClick={() => setOverlay("learn")}>
+            Learn More
+          </button>
+        </nav>
       </div>
 
       <div className="world-svg-wrapper">
