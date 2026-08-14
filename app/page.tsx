@@ -2,18 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { hexPoints, getHexPosition, getGridDimensions, getHexMetrics } from "@/components/archive/HexUtils";
+import { hexPoints, getHexPosition, getGridDimensions } from "@/components/archive/HexUtils";
+import WorldLanding from "@/components/archive/WorldLanding";
 
 interface Lot { id: number; name: string; architectDesigner: string | null; publicSpace: boolean; }
 interface Neighborhood { id: number; name: string; lots: Lot[]; }
 
 const HEX_SIZE = 40;
 const CLUSTER_GAP = 0;
+const ENTERED_KEY = "living-archive-entered";
+
+function hasEnteredWorld() {
+  if (typeof window === "undefined") return false;
+  return sessionStorage.getItem(ENTERED_KEY) === "true";
+}
 
 export default function WorldMap() {
   const router = useRouter();
   const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
   const [loading, setLoading] = useState(true);
+  const [entered, setEntered] = useState(hasEnteredWorld);
 
   useEffect(() => {
     fetch("/api/neighborhoods")
@@ -21,8 +29,33 @@ export default function WorldMap() {
       .then(data => { setNeighborhoods(data.data); setLoading(false); });
   }, []);
 
-  if (loading) return <div className="loading">entering the world...</div>;
+  if (!entered) {
+    return (
+      <WorldLanding
+        worldReady={!loading}
+        onEnterWorld={() => {
+          sessionStorage.setItem(ENTERED_KEY, "true");
+          setEntered(true);
+        }}
+      />
+    );
+  }
 
+  // Guard against rendering before neighborhoods have loaded. This matters
+  // because `entered` is seeded synchronously from sessionStorage, so on a
+  // repeat visit it can be `true` on the very first render — before the
+  // fetch() in useEffect has resolved and neighborhoods is still [].
+  if (loading || neighborhoods.length === 0) {
+    return (
+      <main className="world-map">
+        <div className="world-header">
+          <h1 className="world-title">Crafting Our Legacy</h1>
+          <p className="world-subtitle">A Living Archive</p>
+        </div>
+      </main>
+    );
+  }
+  
   // calculate cluster offsets — lay them out in rows
   const CLUSTERS_PER_ROW = 3;
   const clusterOffsets: { x: number; y: number }[] = [];
