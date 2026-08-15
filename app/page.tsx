@@ -25,8 +25,18 @@ export default function WorldMap() {
   const router = useRouter();
   const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
   const [loading, setLoading] = useState(true);
-  const [entered, setEntered] = useState(hasEnteredWorld);
+  // const [entered, setEntered] = useState(hasEnteredWorld);
+  const [entered, setEntered] = useState(false);
   const [overlay, setOverlay] = useState<WorldOverlay>("none");
+
+  useEffect(() => {
+    // sessionStorage only exists on the client, so this has to run post-mount,
+    // never during the initial render (server or client) — otherwise the
+    // client's first render can diverge from the server's and hydration fails.
+    if (hasEnteredWorld()) {
+      setEntered(true);
+    }
+  }, []);
 
   useEffect(() => {
     fetch("/api/neighborhoods")

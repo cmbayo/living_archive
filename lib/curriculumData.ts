@@ -15,7 +15,7 @@ export interface CurriculumModule {
 export const CURRICULUM_MODULES: CurriculumModule[] = [
   {
     id: 1,
-    title: "Welcome to Benin City!",
+    title: "Fractals and Structures",
     subtitle: "Crafting Our Legacy",
     locked: false,
     duration: "2–2.5 hours",

@@ -28,7 +28,7 @@ export default function WorldLanding({ onEnterWorld, worldReady }: WorldLandingP
         <p className="world-landing-eyebrow">A Living Archive</p>
         <h1 className="world-landing-title">Crafting Our Legacy</h1>
         <p className="world-landing-tagline">
-          An Afrofuturist community archive inspired by the fractal design of Benin City
+          An Afrofuturist community archive of artifacts made by participants inspired by the fractal design of Benin City in the 1400s
         </p>
         <div className="world-landing-divider" />
 
