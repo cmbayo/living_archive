@@ -507,6 +507,40 @@
   padding: 6rem;
 }
 
+.neighborhood-scene-section {
+  margin-bottom: 3rem;
+}
+
+.neighborhood-scene {
+  width: 100%;
+  height: 55vh;
+  min-height: 360px;
+  border: 1px solid var(--gold-muted);
+}
+
+.neighborhood-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.neighborhood-scene--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 2rem;
+}
+
+.neighborhood-scene-meta {
+  color: var(--cream-muted);
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
 .neighborhood-header {
   margin-bottom: 2rem;
 }

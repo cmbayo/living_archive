@@ -38,3 +38,18 @@ export function getGridDimensions(count: number, hexSize: number) {
     height: rows * ROW_SPACING + HEX_HEIGHT,
   };
 }
+
+/** Map a hex grid index to a centered [x, y, z] position for 3D scenes. */
+export function getHexPosition3D(
+  index: number,
+  total: number,
+  spacing = 3
+): [number, number, number] {
+  const pos = getHexPosition(index, spacing);
+  const all = Array.from({ length: total }, (_, i) => getHexPosition(i, spacing));
+  const xs = all.map(p => p.x);
+  const ys = all.map(p => p.y);
+  const centerX = (Math.min(...xs) + Math.max(...xs)) / 2;
+  const centerY = (Math.min(...ys) + Math.max(...ys)) / 2;
+  return [pos.x - centerX, 0, pos.y - centerY];
+}

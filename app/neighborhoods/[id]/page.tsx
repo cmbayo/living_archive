@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import HexGrid from "@/components/archive/HexGrid";
 import AddLotModal from "@/components/archive/modals/AddLotModal";
+import NeighborhoodScene from "@/components/three/NeighborhoodScene";
 
 
 interface Lot {
@@ -11,6 +12,7 @@ interface Lot {
   name: string;
   architectDesigner: string | null;
   publicSpace: boolean;
+  modelUrl?: string | null;
 }
 
 interface Neighborhood {
@@ -52,7 +54,11 @@ export default function NeighborhoodPage() {
       </div>
 
       <div className="fractal-divider" />
-      <HexGrid 
+
+      <NeighborhoodScene lots={neighborhood.lots} />
+
+      <div className="fractal-divider" />
+      <HexGrid
         lots={neighborhood.lots} 
         neighborhoodId={neighborhood.id} 
         onAddLot={() => setShowAddLot(true)}
